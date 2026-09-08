@@ -1,2377 +1,902 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google Analytics (loads only after consent) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0JQRNX5E6R"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  function loadGA() {
-    gtag('js', new Date());
-    gtag('config', 'G-0JQRNX5E6R');
-  }
-  if (localStorage.getItem('cbc_cookie_consent') === 'accepted') {
-    loadGA();
-  }
-</script>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>The Covered Bridge Convenience | Salisbury Center, NY</title>
-<meta name="description" content="Family-owned restaurant, deli &amp; convenience store in Salisbury Center, NY. Breakfast served until 11AM, lunch &amp; dinner daily. Burgers, subs, wings, salads &amp; more. Open Tue–Sun on Route 29. Tue 10AM–6PM, Wed–Sun 8AM–8PM."/>
-<meta name="keywords" content="Covered Bridge Convenience, Salisbury Center NY, restaurant, diner, breakfast, lunch, dinner, burgers, subs, wings, Herkimer County, Route 29"/>
-<meta name="robots" content="index, follow"/>
-<link rel="canonical" href="https://coveredbridgeconvenience.com"/>
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="restaurant"/>
-<meta property="og:title" content="The Covered Bridge Convenience | Salisbury Center, NY"/>
-<meta property="og:description" content="Great food, great people, great times. Family-owned since 2001. Breakfast, lunch &amp; dinner on Route 29 in Salisbury Center, NY."/>
-<meta property="og:url" content="https://coveredbridgeconvenience.com"/>
-<meta property="og:image" content="https://github.com/cmanchester18/Covered-Bridge-Convienence/blob/main/images/Image.jpeg?raw=true"/>
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="The Covered Bridge Convenience | Salisbury Center, NY"/>
-<meta name="twitter:description" content="Family-owned restaurant &amp; convenience store. Breakfast, lunch &amp; dinner on Route 29, Salisbury Center NY."/>
-<!-- Local Business Schema -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Restaurant",
-  "name": "The Covered Bridge Convenience",
-  "url": "https://coveredbridgeconvenience.com",
-  "telephone": "+13154293434",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "2457 State Route 29",
-    "addressLocality": "Salisbury Center",
-    "addressRegion": "NY",
-    "postalCode": "13454",
-    "addressCountry": "US"
-  },
-  "openingHours": ["Tu 10:00-18:00", "We-Su 08:00-20:00"],
-  "servesCuisine": ["American", "Diner", "Deli"],
-  "priceRange": "$",
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": "50"
-  }
-}
-</script>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>Shift Board</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* ════════════════════════════════════════
-   RESET & TOKENS
-════════════════════════════════════════ */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --ink:        #0c1624;
-  --navy:       #152238;
-  --navy-mid:   #1e3254;
-  --navy-light: #2a4470;
-  --navy-deep:  #0a1220;
-  --gold:       #b8924a;
-  --gold-lt:    #d4ac6a;
-  --gold-pale:  #e8d5aa;
-  --parchment:  #f2ead8;
-  --cream:      #faf6ee;
-  --white:      #ffffff;
-  --red:        #8b2020;
-  --text-muted: rgba(255,255,255,0.55);
-
-  --font-display: 'Cormorant Garamond', Georgia, serif;
-  --font-body:    'Outfit', sans-serif;
-
-  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-html { scroll-behavior: smooth; font-size: 16px; }
-
-body {
-  font-family: var(--font-body);
-  background: var(--cream);
-  color: var(--navy);
-  overflow-x: hidden;
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: var(--ink); }
-::-webkit-scrollbar-thumb { background: var(--gold); }
-
-/* ════════════════════════════════════════
-   NOISE TEXTURE OVERLAY
-════════════════════════════════════════ */
-body::before {
-  content: '';
-  position: fixed; inset: 0; z-index: 9999;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
-  opacity: 0.025;
-}
-
-/* ════════════════════════════════════════
-   COOKIE CONSENT BANNER
-════════════════════════════════════════ */
-#cookie-banner {
-  position: fixed;
-  bottom: 0; left: 0; right: 0;
-  z-index: 10000;
-  background: var(--ink);
-  border-top: 2px solid var(--gold);
-  padding: 1.2rem 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-  box-shadow: 0 -8px 32px rgba(0,0,0,0.4);
-  transform: translateY(100%);
-  transition: transform 0.4s var(--ease-out);
-}
-#cookie-banner.visible {
-  transform: translateY(0);
-}
-#cookie-banner p {
-  font-size: 0.82rem;
-  color: rgba(255,255,255,0.7);
-  line-height: 1.6;
-  font-weight: 300;
-  flex: 1;
-  min-width: 200px;
-}
-#cookie-banner p strong {
-  color: #fff;
-  font-weight: 600;
-}
-#cookie-banner a {
-  color: var(--gold-lt);
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-.cookie-actions {
-  display: flex;
-  gap: 0.75rem;
-  flex-shrink: 0;
-  flex-wrap: wrap;
-}
-#cookie-accept {
-  background: var(--gold);
-  color: var(--ink);
-  border: none;
-  padding: 0.6rem 1.4rem;
-  border-radius: 2px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  cursor: pointer;
-  font-family: var(--font-body);
-  transition: background 0.2s, transform 0.2s;
-}
-#cookie-accept:hover {
-  background: var(--gold-lt);
-  transform: translateY(-1px);
-}
-#cookie-decline {
-  background: transparent;
-  color: rgba(255,255,255,0.45);
-  border: 1px solid rgba(255,255,255,0.15);
-  padding: 0.6rem 1.2rem;
-  border-radius: 2px;
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  cursor: pointer;
-  font-family: var(--font-body);
-  transition: all 0.2s;
-}
-#cookie-decline:hover {
-  border-color: rgba(255,255,255,0.35);
-  color: rgba(255,255,255,0.7);
-}
-@media (max-width: 600px) {
-  #cookie-banner {
-    padding: 1rem 1.2rem;
-    flex-direction: column;
-    align-items: flex-start;
+  :root{
+    --paper:#F5F0E6;
+    --ink:#26211B;
+    --ink-soft:#6B6255;
+    --rust:#B8451F;
+    --rust-dark:#8F3517;
+    --herb:#54633C;
+    --herb-soft:#EAF0DF;
+    --deny:#9A3324;
+    --deny-soft:#F5E4DF;
+    --line:#DCD2BF;
+    --card:#FFFDF8;
+    --pending-soft:#F3E9CE;
+    --pending-ink:#8A6A1E;
   }
-  .cookie-actions { width: 100%; }
-  #cookie-accept, #cookie-decline { flex: 1; text-align: center; }
-}
-
-/* ════════════════════════════════════════
-   NAVIGATION
-════════════════════════════════════════ */
-#nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 500;
-  height: 72px;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0 4rem;
-  background: linear-gradient(to bottom, rgba(10,18,32,0.6) 0%, transparent 100%);
-  transition: background 0.4s var(--ease-out), border-color 0.4s;
-  border-bottom: 1px solid transparent;
-}
-#nav.scrolled {
-  background: rgba(12, 22, 36, 0.96);
-  border-bottom-color: rgba(184, 146, 74, 0.3);
-}
-#nav.scrolled::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  z-index: -1;
-  pointer-events: none;
-}
-
-.nav-wordmark {
-  display: flex; flex-direction: column; gap: 1px;
-  text-decoration: none;
-}
-.nav-wordmark .wm-top {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 300;
-  font-size: 1.2rem;
-  color: var(--gold-lt);
-  line-height: 1;
-  letter-spacing: 0.04em;
-}
-.nav-wordmark .wm-bottom {
-  font-family: var(--font-body);
-  font-size: 0.6rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.45);
-  font-weight: 500;
-}
-
-.nav-links {
-  display: flex; gap: 2.5rem; list-style: none; align-items: center;
-}
-.nav-links a {
-  font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
-  font-weight: 500; text-decoration: none;
-  color: rgba(255,255,255,0.65);
-  transition: color 0.2s;
-  position: relative;
-}
-.nav-links a::after {
-  content: '';
-  position: absolute; bottom: -4px; left: 0; right: 0;
-  height: 1px; background: var(--gold);
-  transform: scaleX(0); transform-origin: left;
-  transition: transform 0.3s var(--ease-out);
-}
-.nav-links a:hover { color: #fff; }
-.nav-links a:hover::after { transform: scaleX(1); }
-
-.nav-cta {
-  background: var(--gold);
-  color: var(--ink) !important;
-  padding: 0.55rem 1.4rem !important;
-  border-radius: 2px;
-  font-weight: 600 !important;
-  transition: background 0.2s, transform 0.2s !important;
-}
-.nav-cta:hover { background: var(--gold-lt) !important; transform: translateY(-1px); }
-.nav-cta::after { display: none !important; }
-
-/* ════════════════════════════════════════
-   HERO
-════════════════════════════════════════ */
-#hero {
-  position: relative;
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-}
-
-.hero-bg {
-  position: absolute; inset: 0;
-  background:
-    linear-gradient(to bottom,
-      rgba(12,22,36,0.35) 0%,
-      rgba(12,22,36,0.15) 35%,
-      rgba(12,22,36,0.72) 75%,
-      rgba(12,22,36,1)    100%
-    ),
-    url('./images/Image.jpeg')
-      center / cover no-repeat;
-  transform: scale(1.04);
-  animation: heroZoom 18s ease-in-out infinite alternate;
-}
-
-@keyframes heroZoom {
-  from { transform: scale(1.04); }
-  to   { transform: scale(1.0); }
-}
-
-.hero-slice {
-  position: absolute; bottom: -1px; left: 0; right: 0;
-  height: 140px;
-  background: var(--cream);
-  clip-path: polygon(0 60%, 100% 0%, 100% 100%, 0% 100%);
-}
-
-.hero-content {
-  position: relative; z-index: 2;
-  text-align: center;
-  padding: 6rem 2rem 10rem;
-  max-width: 900px;
-}
-
-.hero-eyebrow {
-  display: inline-flex; align-items: center; gap: 1rem;
-  margin-bottom: 2rem;
-  animation: fadeUp 0.8s 0.2s var(--ease-out) both;
-}
-.hero-eyebrow span {
-  font-size: 0.65rem; letter-spacing: 0.28em; text-transform: uppercase;
-  font-weight: 600; color: #fff;
-  text-shadow: 0 2px 12px rgba(0,0,0,0.95), 0 4px 28px rgba(0,0,0,0.75);
-  background: rgba(0,0,0,0.28);
-  padding: 0.28rem 0.9rem;
-  border-radius: 100px;
-  -webkit-backdrop-filter: blur(6px);
-  backdrop-filter: blur(6px);
-  border: 1px solid rgba(255,255,255,0.12);
-}
-.hero-eyebrow .line {
-  width: 40px; height: 1px; background: rgba(255,255,255,0.55);
-}
-
-.hero-title {
-  font-family: var(--font-display);
-  font-size: clamp(3.5rem, 9vw, 7.5rem);
-  font-weight: 300;
-  line-height: 0.95;
-  color: #fff;
-  letter-spacing: -0.01em;
-  animation: fadeUp 0.9s 0.35s var(--ease-out) both;
-  text-shadow: 0 2px 12px rgba(0,0,0,0.65), 0 6px 40px rgba(0,0,0,0.5);
-}
-.hero-title em {
-  font-style: italic;
-  color: var(--gold-lt);
-  font-weight: 300;
-  text-shadow: 0 2px 16px rgba(0,0,0,0.65), 0 4px 32px rgba(0,0,0,0.5);
-}
-.hero-title .script-word {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 300;
-  font-size: 1.0em;
-  color: var(--gold-pale);
-  display: block;
-  line-height: 1.15;
-  margin: 0.05em 0;
-  text-shadow: 0 2px 16px rgba(0,0,0,0.65), 0 4px 32px rgba(0,0,0,0.5);
-}
-
-.hero-sub {
-  margin-top: 2rem;
-  font-size: 1rem;
-  font-weight: 300;
-  color: rgba(255,255,255,0.65);
-  letter-spacing: 0.05em;
-  text-shadow: 0 1px 8px rgba(0,0,0,0.55), 0 3px 20px rgba(0,0,0,0.4);
-  animation: fadeUp 0.9s 0.5s var(--ease-out) both;
-}
-
-.hero-actions {
-  display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
-  margin-top: 2.8rem;
-  animation: fadeUp 0.9s 0.65s var(--ease-out) both;
-}
-
-.btn-primary {
-  background: var(--gold);
-  color: var(--ink);
-  padding: 0.9rem 2.6rem;
-  font-size: 0.75rem; font-weight: 600;
-  letter-spacing: 0.16em; text-transform: uppercase;
-  text-decoration: none; border-radius: 2px;
-  transition: all 0.25s;
-  border: none; cursor: pointer;
-}
-.btn-primary:hover {
-  background: var(--gold-lt);
-  transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(184,146,74,0.35);
-}
-
-.btn-outline {
-  background: transparent;
-  color: rgba(255,255,255,0.85);
-  padding: 0.9rem 2.6rem;
-  font-size: 0.75rem; font-weight: 600;
-  letter-spacing: 0.16em; text-transform: uppercase;
-  text-decoration: none; border-radius: 2px;
-  border: 1px solid rgba(255,255,255,0.3);
-  transition: all 0.25s;
-}
-.btn-outline:hover {
-  border-color: var(--gold);
-  color: var(--gold-lt);
-  transform: translateY(-2px);
-}
-
-.hero-stats {
-  display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap;
-  margin-top: 4rem;
-  animation: fadeUp 0.9s 0.8s var(--ease-out) both;
-}
-.stat {
-  display: flex; flex-direction: column; align-items: center;
-}
-.stat .n {
-  font-family: var(--font-display);
-  font-size: 2.4rem; font-weight: 600;
-  color: var(--gold-lt);
-  line-height: 1;
-}
-.stat .l {
-  font-size: 0.62rem; letter-spacing: 0.18em;
-  text-transform: uppercase; color: rgba(255,255,255,0.45);
-  margin-top: 0.3rem; text-align: center;
-}
-.stat-divider {
-  width: 1px;
-  background: rgba(255,255,255,0.1);
-  align-self: stretch;
-}
-
-/* ════════════════════════════════════════
-   INFO RIBBON
-════════════════════════════════════════ */
-.info-ribbon {
-  background: var(--navy);
-  border-bottom: 2px solid var(--gold);
-  display: flex; justify-content: center; flex-wrap: wrap;
-}
-.ribbon-item {
-  padding: 1.1rem 2.8rem;
-  display: flex; align-items: center; gap: 0.75rem;
-  font-size: 0.78rem; font-weight: 500;
-  color: rgba(255,255,255,0.75);
-  letter-spacing: 0.06em;
-  border-right: 1px solid rgba(255,255,255,0.07);
-  transition: background 0.2s;
-}
-.ribbon-item:last-child { border-right: none; }
-.ribbon-item:hover { background: rgba(255,255,255,0.04); }
-.ribbon-item .dot {
-  width: 6px; height: 6px; border-radius: 50%;
-  background: var(--gold); flex-shrink: 0;
-}
-.ribbon-item a { color: inherit; text-decoration: none; }
-.ribbon-item a:hover { color: var(--gold-pale); }
-
-/* ════════════════════════════════════════
-   SHARED SECTION STYLES
-════════════════════════════════════════ */
-.section { padding: 7rem 2rem; }
-.container { max-width: 1160px; margin: 0 auto; }
-
-.label {
-  font-size: 0.62rem; letter-spacing: 0.28em; text-transform: uppercase;
-  font-weight: 600; color: var(--gold);
-  display: flex; align-items: center; gap: 0.8rem;
-  margin-bottom: 0.8rem;
-}
-.label::before {
-  content: '';
-  display: inline-block; width: 28px; height: 1px;
-  background: var(--gold); flex-shrink: 0;
-}
-
-.heading {
-  font-family: var(--font-display);
-  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
-  font-weight: 300; line-height: 1.1;
-  color: var(--navy);
-  margin-bottom: 1.8rem;
-}
-.heading em { font-style: italic; color: var(--gold); }
-.heading-light { color: #fff; }
-.heading-light em { color: var(--gold-lt); }
-
-/* ════════════════════════════════════════
-   ABOUT
-════════════════════════════════════════ */
-#about { background: var(--navy); overflow: hidden; }
-
-.about-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6rem;
-  align-items: center;
-}
-
-.about-copy p {
-  font-size: 1.0rem; line-height: 1.95;
-  color: #4a5e78; margin-bottom: 1.2rem;
-  font-weight: 300;
-}
-.about-copy p strong { color: var(--navy); font-weight: 600; }
-
-.about-quote {
-  margin: 2.5rem 0;
-  padding: 1.5rem 2rem;
-  border-left: 3px solid var(--gold);
-  background: rgba(184,146,74,0.06);
-  border-radius: 0 4px 4px 0;
-}
-.about-quote blockquote {
-  font-family: var(--font-display);
-  font-size: 1.35rem; font-style: italic;
-  font-weight: 400; color: var(--navy);
-  line-height: 1.5;
-}
-.about-quote cite {
-  display: block; margin-top: 0.6rem;
-  font-size: 0.7rem; letter-spacing: 0.14em;
-  text-transform: uppercase; color: var(--gold);
-  font-style: normal; font-weight: 600;
-}
-
-.about-tags {
-  display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2rem;
-}
-.tag {
-  padding: 0.35rem 0.9rem;
-  border: 1px solid rgba(21,34,56,0.2);
-  border-radius: 100px;
-  font-size: 0.68rem; letter-spacing: 0.1em;
-  text-transform: uppercase; font-weight: 600;
-  color: var(--navy-mid);
-  transition: all 0.2s;
-}
-.tag:hover {
-  background: var(--navy);
-  color: var(--gold-pale);
-  border-color: var(--navy);
-}
-
-.about-visual-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.cred-card-main {
-  background: var(--navy);
-  border-radius: 8px;
-  padding: 2.8rem 2.5rem;
-  position: relative;
-  overflow: hidden;
-}
-.cred-card-main::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0;
-  height: 3px;
-  background: linear-gradient(to right, var(--gold), var(--gold-lt), transparent);
-}
-.cred-card-main::after {
-  content: '"';
-  position: absolute; bottom: -1.5rem; right: 1.5rem;
-  font-family: var(--font-display);
-  font-size: 10rem; line-height: 1;
-  color: rgba(184,146,74,0.08);
-  pointer-events: none;
-}
-.cred-score {
-  display: flex; align-items: flex-end; gap: 1rem;
-  margin-bottom: 1rem;
-}
-.cred-score .big-num {
-  font-family: var(--font-display);
-  font-size: 5rem; font-weight: 300;
-  color: var(--gold-lt); line-height: 1;
-}
-.cred-score-right { padding-bottom: 0.6rem; }
-.cred-score-right .stars { color: #d4a017; font-size: 1.1rem; letter-spacing: 0.05em; }
-.cred-score-right .source {
-  font-size: 0.68rem; letter-spacing: 0.14em;
-  text-transform: uppercase; color: rgba(255,255,255,0.4);
-  margin-top: 0.3rem; font-weight: 500;
-}
-.cred-quote {
-  font-family: var(--font-display);
-  font-size: 1.05rem; font-style: italic;
-  color: rgba(255,255,255,0.75); line-height: 1.7;
-  border-top: 1px solid rgba(255,255,255,0.08);
-  padding-top: 1.2rem; margin-top: 0.5rem;
-}
-.cred-quote cite {
-  display: block; margin-top: 0.6rem;
-  font-size: 0.65rem; letter-spacing: 0.14em;
-  text-transform: uppercase; color: var(--gold);
-  font-style: normal; font-weight: 600;
-}
-
-.cred-row {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 1.2rem;
-}
-.cred-stat {
-  background: var(--navy-mid);
-  border-radius: 8px;
-  padding: 1.6rem 1.4rem;
-  border: 1px solid rgba(255,255,255,0.06);
-  transition: border-color 0.2s;
-}
-.cred-stat:hover { border-color: rgba(184,146,74,0.3); }
-.cred-stat .stat-val {
-  font-family: var(--font-display);
-  font-size: 2.4rem; font-weight: 300;
-  color: var(--gold-lt); line-height: 1;
-  margin-bottom: 0.4rem;
-}
-.cred-stat .stat-lbl {
-  font-size: 0.68rem; letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.45); font-weight: 500;
-}
-
-.cred-card-wide {
-  background: var(--ink);
-  border-radius: 8px;
-  padding: 1.6rem 2rem;
-  display: flex; align-items: center; gap: 1.5rem;
-  border: 1px solid rgba(184,146,74,0.15);
-}
-.cred-card-wide .icon {
-  font-size: 2rem; flex-shrink: 0;
-}
-.cred-card-wide h4 {
-  font-family: var(--font-display);
-  font-size: 1rem; font-weight: 600;
-  color: #fff; margin-bottom: 0.2rem;
-}
-.cred-card-wide p {
-  font-size: 0.75rem; color: rgba(255,255,255,0.45);
-  line-height: 1.5; font-weight: 300;
-}
-
-/* ════════════════════════════════════════
-   BRIDGE FEATURE
-════════════════════════════════════════ */
-#bridge {
-  background: var(--navy);
-  position: relative; overflow: hidden;
-  padding: 5rem 2rem;
-}
-#bridge::before {
-  content: '';
-  position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse 60% 80% at 80% 50%, rgba(42,68,112,0.6) 0%, transparent 70%),
-    url('./images/cbcphotos.webp')
-      center/cover no-repeat;
-  opacity: 0.2;
-}
-
-.bridge-inner {
-  position: relative;
-  max-width: 1160px; margin: 0 auto;
-  display: grid; grid-template-columns: 80px 1fr; gap: 3rem; align-items: center;
-}
-.bridge-icon {
-  width: 80px; height: 80px;
-  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-lt) 100%);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 2rem;
-  box-shadow: 0 8px 32px rgba(184,146,74,0.3);
-  flex-shrink: 0;
-}
-.bridge-text h3 {
-  font-family: var(--font-display);
-  font-size: 1.7rem; font-weight: 400;
-  color: #fff; margin-bottom: 0.7rem;
-  font-style: italic;
-}
-.bridge-text p {
-  font-size: 0.9rem; line-height: 1.85;
-  color: rgba(255,255,255,0.6); max-width: 720px;
-}
-.bridge-text p em { color: var(--gold-pale); font-style: normal; font-weight: 500; }
-.bridge-facts {
-  display: flex; gap: 2.5rem; margin-top: 1.5rem; flex-wrap: wrap;
-}
-.bridge-fact {
-  font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
-  color: rgba(255,255,255,0.4);
-  display: flex; align-items: center; gap: 0.5rem;
-}
-.bridge-fact::before {
-  content: '▸'; color: var(--gold); font-size: 0.6rem;
-}
-
-/* ════════════════════════════════════════
-   MENU
-════════════════════════════════════════ */
-#menu { background: var(--cream); }
-
-.menu-intro {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 3rem; margin-bottom: 3rem; align-items: end;
-}
-.menu-intro-right {
-  font-size: 0.95rem; line-height: 1.8;
-  color: #4a5e78; font-weight: 300;
-  padding-bottom: 0.5rem;
-}
-
-.menu-tabs {
-  display: flex; gap: 0;
-  border-bottom: 2px solid rgba(21,34,56,0.1);
-  margin-bottom: 2.5rem;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-.menu-tabs::-webkit-scrollbar { display: none; }
-.menu-tab {
-  display: flex; align-items: center; gap: 0.45rem;
-  padding: 0.9rem 1.2rem;
-  font-family: var(--font-body);
-  font-size: 0.72rem; font-weight: 600;
-  letter-spacing: 0.07em; text-transform: uppercase;
-  color: #7a8fa8;
-  background: none; border: none;
-  border-bottom: 2px solid transparent;
-  margin-bottom: -2px;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: color 0.2s, border-color 0.2s;
-  flex-shrink: 0;
-  touch-action: manipulation;
-  -webkit-tap-highlight-color: transparent;
-}
-.menu-tab:hover { color: var(--navy); }
-.menu-tab.active {
-  color: var(--navy);
-  border-bottom-color: var(--gold);
-}
-
-.menu-panel { display: none; }
-.menu-panel.active {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid rgba(21,34,56,0.08);
-  border-radius: 8px;
-  overflow: hidden;
-  animation: panelFade 0.3s ease both;
-}
-@keyframes panelFade {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-.menu-entry {
-  display: flex; align-items: center;
-  justify-content: space-between; gap: 1.2rem;
-  padding: 1.1rem 1.6rem;
-  border-bottom: 1px solid rgba(21,34,56,0.07);
-  transition: background 0.18s;
-  cursor: default;
-}
-.menu-entry:last-child { border-bottom: none; }
-.menu-entry:hover { background: #f8f4ec; }
-.menu-entry-dot { display: none; }
-.menu-entry-body { flex: 1; }
-.menu-entry-top {
-  display: flex; justify-content: space-between;
-  align-items: center; gap: 0.75rem;
-}
-.menu-entry-name {
-  font-family: var(--font-display);
-  font-size: 1rem; font-weight: 600;
-  color: var(--navy); line-height: 1.3;
-}
-.menu-entry-price {
-  font-family: var(--font-display);
-  font-size: 1.08rem; font-weight: 600;
-  color: var(--gold); white-space: nowrap; flex-shrink: 0;
-  letter-spacing: 0.01em;
-}
-.menu-entry-desc {
-  font-size: 0.78rem; line-height: 1.55;
-  color: #7a8fa8; font-weight: 300;
-  margin-top: 0.2rem;
-}
-.menu-entry-tag {
-  display: inline-block; margin-top: 0.35rem;
-  padding: 0.15rem 0.55rem;
-  background: rgba(184,146,74,0.1);
-  border-radius: 100px;
-  font-size: 0.6rem; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--gold);
-  font-weight: 600;
-}
-
-.specials-banner {
-  margin-top: 2.5rem;
-  background: var(--navy);
-  border-radius: 6px;
-  padding: 2.2rem 2.8rem;
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 2rem; flex-wrap: wrap;
-  position: relative; overflow: hidden;
-}
-.specials-banner::before {
-  content: '';
-  position: absolute; top: 0; left: 0;
-  width: 4px; height: 100%;
-  background: linear-gradient(to bottom, var(--gold), var(--gold-lt));
-}
-.specials-banner h3 {
-  font-family: var(--font-display);
-  font-size: 1.4rem; font-weight: 400;
-  font-style: italic; color: #fff;
-  margin-bottom: 0.35rem;
-}
-.specials-banner p {
-  font-size: 0.82rem; color: rgba(255,255,255,0.55);
-  line-height: 1.6;
-}
-.specials-banner a {
-  color: var(--gold-pale); font-weight: 500;
-  text-decoration: none; border-bottom: 1px solid rgba(184,146,74,0.4);
-}
-.specials-banner a:hover { color: var(--gold-lt); border-bottom-color: var(--gold-lt); }
-
-/* ════════════════════════════════════════
-   FAVORITES STRIP
-════════════════════════════════════════ */
-#favorites {
-  background:
-    linear-gradient(rgba(10,18,32,0.84), rgba(10,18,32,0.84)),
-    url('./images/cbc breakfast.webp') center/cover no-repeat;
-  padding: 4.5rem 2rem;
-}
-.fav-header {
-  display: flex; align-items: baseline;
-  justify-content: space-between;
-  margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem;
-}
-.fav-scroll {
-  display: flex; gap: 0.75rem; flex-wrap: wrap;
-}
-.fav-pill {
-  display: flex; align-items: center; gap: 0.6rem;
-  padding: 0.7rem 1.4rem;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(184,146,74,0.2);
-  border-radius: 100px;
-  font-size: 0.82rem; font-weight: 400;
-  color: rgba(255,255,255,0.75);
-  transition: all 0.22s;
-  cursor: default;
-}
-.fav-pill .star { color: var(--gold); font-size: 0.7rem; }
-.fav-pill:hover {
-  background: rgba(184,146,74,0.12);
-  border-color: var(--gold);
-  color: #fff;
-  transform: translateY(-2px);
-}
-
-/* ════════════════════════════════════════
-   SERVICES
-════════════════════════════════════════ */
-#services { background: var(--cream); }
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-top: 1rem;
-}
-.service-tile {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.07);
-  border-radius: 4px;
-  padding: 2.2rem 2rem;
-  transition: all 0.25s;
-  position: relative; overflow: hidden;
-}
-.service-tile::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(to right, var(--gold), transparent);
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-.service-tile:hover {
-  background: rgba(255,255,255,0.07);
-  border-color: rgba(184,146,74,0.25);
-  transform: translateY(-3px);
-}
-.service-tile:hover::before { opacity: 1; }
-
-.service-number {
-  font-family: var(--font-display);
-  font-size: 3rem; font-weight: 300;
-  color: rgba(184,146,74,0.15);
-  line-height: 1; margin-bottom: 1rem;
-}
-.service-tile h3 {
-  font-family: var(--font-display);
-  font-size: 1.15rem; font-weight: 600;
-  color: #fff; margin-bottom: 0.5rem;
-}
-.service-tile p {
-  font-size: 0.8rem; line-height: 1.7;
-  color: rgba(255,255,255,0.5);
-  font-weight: 300;
-}
-.service-tile .s-icon {
-  display: block;
-  margin-bottom: 0.9rem;
-  color: var(--gold);
-  line-height: 0;
-}
-.service-badge {
-  display: inline-block; margin-top: 1.2rem;
-  padding: 0.3rem 0.8rem;
-  border: 1px solid rgba(184,146,74,0.3);
-  border-radius: 100px;
-  font-size: 0.62rem; letter-spacing: 0.12em;
-  text-transform: uppercase; color: var(--gold);
-  font-weight: 600;
-}
-
-/* ════════════════════════════════════════
-   REVIEWS
-════════════════════════════════════════ */
-#reviews { background: var(--parchment); }
-
-.reviews-header {
-  display: flex; align-items: flex-end; justify-content: space-between;
-  margin-bottom: 3.5rem; flex-wrap: wrap; gap: 1rem;
-}
-.review-aggregate {
-  display: flex; align-items: center; gap: 1.5rem;
-  background: var(--white);
-  padding: 1.2rem 2rem;
-  border-radius: 4px;
-  border: 1px solid rgba(21,34,56,0.08);
-}
-.review-agg-score {
-  font-family: var(--font-display);
-  font-size: 3rem; font-weight: 300;
-  color: var(--navy); line-height: 1;
-}
-.review-agg-right .stars { color: #c8920a; font-size: 1rem; margin-bottom: 0.3rem; }
-.review-agg-right .count { font-size: 0.7rem; color: #7a8fa8; letter-spacing: 0.08em; }
-
-.reviews-grid {
-  display: grid; grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-}
-.review-card {
-  background: var(--white);
-  border-radius: 4px;
-  padding: 2.2rem 2.4rem;
-  border: 1px solid rgba(21,34,56,0.07);
-  position: relative;
-  transition: box-shadow 0.25s, transform 0.25s;
-}
-.review-card:hover {
-  box-shadow: 0 16px 50px rgba(12,22,36,0.1);
-  transform: translateY(-3px);
-}
-.review-open-quote {
-  font-family: var(--font-display);
-  font-size: 5rem; line-height: 0.6;
-  color: var(--gold); opacity: 0.2;
-  float: left; margin-right: 0.3rem; margin-top: 0.6rem;
-}
-.review-body {
-  font-family: var(--font-display);
-  font-size: 1.05rem; font-style: italic;
-  font-weight: 400; line-height: 1.75;
-  color: var(--navy); margin-bottom: 1.5rem;
-}
-.review-footer {
-  display: flex; align-items: center; justify-content: space-between;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(21,34,56,0.07);
-}
-.reviewer-info .name {
-  font-size: 0.75rem; font-weight: 600;
-  color: var(--navy); letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-.reviewer-info .via {
-  font-size: 0.68rem; color: var(--gold);
-  font-weight: 500; margin-top: 0.1rem;
-}
-.review-stars { color: #c8920a; font-size: 0.82rem; }
-.verified-badge {
-  display: flex; align-items: center; gap: 0.3rem;
-  font-size: 0.65rem; color: #4caf7d; font-weight: 600;
-  margin-top: 0.3rem;
-}
-
-/* ════════════════════════════════════════
-   FULL BLEED CTA BANNER
-════════════════════════════════════════ */
-#cta-banner {
-  position: relative;
-  padding: 7rem 2rem;
-  overflow: hidden;
-  text-align: center;
-}
-.cta-bg {
-  position: absolute; inset: 0;
-  background:
-    linear-gradient(rgba(12,22,36,0.78), rgba(12,22,36,0.82)),
-    url('./images/famphoto.jpg')
-      center 40%/cover no-repeat;
-}
-.cta-content {
-  position: relative; z-index: 1;
-}
-.cta-script {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 300;
-  font-size: clamp(2.8rem, 5.5vw, 4.8rem);
-  color: var(--gold-pale);
-  line-height: 1.1;
-  margin-bottom: 0.5rem;
-  opacity: 0.9;
-}
-.cta-title {
-  font-family: var(--font-display);
-  font-size: clamp(1.8rem, 4vw, 3rem);
-  font-weight: 300; color: #fff;
-  margin-bottom: 1.2rem;
-}
-.cta-sub {
-  font-size: 0.9rem; color: rgba(255,255,255,0.55);
-  font-weight: 300; margin-bottom: 2.5rem;
-}
-.cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-
-/* ════════════════════════════════════════
-   VISIT / HOURS
-════════════════════════════════════════ */
-#visit { background: var(--ink); }
-
-.visit-layout {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 5rem; align-items: start;
-}
-
-.visit-details h3 {
-  font-family: var(--font-display);
-  font-size: 1rem; font-weight: 600;
-  color: var(--gold-lt); letter-spacing: 0.05em;
-  margin-bottom: 0.7rem; margin-top: 2.2rem;
-}
-.visit-details h3:first-of-type { margin-top: 0; }
-.visit-details p {
-  font-size: 0.88rem; line-height: 1.85;
-  color: rgba(255,255,255,0.6); font-weight: 300;
-}
-.visit-details a { color: var(--gold-pale); text-decoration: none; border-bottom: 1px solid rgba(184,146,74,0.3); transition: color 0.2s; }
-.visit-details a:hover { color: var(--gold-lt); }
-
-.hours-table { width: 100%; border-collapse: collapse; }
-.hours-table tr { border-bottom: 1px solid rgba(255,255,255,0.05); }
-.hours-table td {
-  padding: 0.5rem 0;
-  font-size: 0.83rem; color: rgba(255,255,255,0.55);
-}
-.hours-table td:last-child { text-align: right; }
-.hours-table tr.open td { color: rgba(255,255,255,0.85); }
-.hours-table tr.open td:last-child { color: #6fd67f; }
-.hours-table tr.closed td { opacity: 0.4; }
-
-.social-row { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.8rem; }
-.social-link {
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  padding: 0.6rem 1.2rem;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 3px;
-  font-size: 0.72rem; font-weight: 500;
-  color: rgba(255,255,255,0.7);
-  text-decoration: none;
-  transition: all 0.2s;
-  letter-spacing: 0.06em;
-}
-.social-link:hover {
-  background: var(--gold);
-  color: var(--ink);
-  border-color: var(--gold);
-}
-
-.call-button {
-  display: inline-flex; align-items: center; gap: 0.7rem;
-  background: var(--gold);
-  color: var(--ink);
-  padding: 1rem 2.2rem;
-  border-radius: 3px;
-  font-size: 0.82rem; font-weight: 600;
-  letter-spacing: 0.1em; text-transform: uppercase;
-  text-decoration: none; margin-top: 1.5rem;
-  transition: all 0.22s;
-}
-.call-button:hover {
-  background: var(--gold-lt);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 28px rgba(184,146,74,0.3);
-}
-
-.map-frame {
-  border-radius: 6px; overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.08);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-}
-.map-frame iframe { width: 100%; height: 380px; display: block; border: none; filter: contrast(1.1) saturate(0.6); }
-
-.payment-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem; }
-.pay-badge {
-  padding: 0.25rem 0.65rem;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 3px;
-  font-size: 0.65rem; letter-spacing: 0.08em;
-  text-transform: uppercase; color: rgba(255,255,255,0.45);
-  font-weight: 600;
-}
-
-/* ════════════════════════════════════════
-   FOOTER
-════════════════════════════════════════ */
-footer {
-  background: var(--navy-deep);
-  border-top: 1px solid rgba(184,146,74,0.2);
-  padding: 4rem 2rem 2rem;
-}
-.footer-inner {
-  max-width: 1160px; margin: 0 auto;
-  display: grid; grid-template-columns: 2fr 1fr 1fr;
-  gap: 4rem; margin-bottom: 3rem;
-}
-.footer-brand .script {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 300;
-  font-size: 1.7rem;
-  color: var(--gold-lt);
-  line-height: 1.2;
-  letter-spacing: 0.01em;
-  margin-bottom: 0.5rem;
-}
-.footer-brand p {
-  font-size: 0.8rem; color: rgba(255,255,255,0.4);
-  line-height: 1.75; max-width: 320px;
-  font-weight: 300;
-}
-.footer-col h4 {
-  font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase;
-  font-weight: 600; color: var(--gold);
-  margin-bottom: 1.2rem;
-}
-.footer-col ul { list-style: none; }
-.footer-col li { margin-bottom: 0.6rem; }
-.footer-col a {
-  font-size: 0.8rem; color: rgba(255,255,255,0.45);
-  text-decoration: none; font-weight: 300;
-  transition: color 0.2s;
-}
-.footer-col a:hover { color: var(--gold-pale); }
-
-.footer-bottom {
-  max-width: 1160px; margin: 0 auto;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(255,255,255,0.06);
-  display: flex; justify-content: space-between; align-items: center;
-  flex-wrap: wrap; gap: 1rem;
-}
-.footer-bottom p {
-  font-size: 0.7rem; color: rgba(255,255,255,0.25);
-  letter-spacing: 0.06em;
-}
-
-/* ════════════════════════════════════════
-   SCROLL ANIMATIONS
-════════════════════════════════════════ */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
-}
-.reveal.visible {
-  opacity: 1;
-  transform: none;
-}
-.reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.2s; }
-.reveal-delay-3 { transition-delay: 0.3s; }
-.reveal-delay-4 { transition-delay: 0.4s; }
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: none; }
-}
-
-.menu-category-header {
-  padding: 0.65rem 1.6rem 0.45rem;
-  background: rgba(21,34,56,0.04);
-  border-bottom: 1px solid rgba(21,34,56,0.07);
-  font-size: 0.62rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  font-weight: 700;
-  color: var(--gold);
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-.menu-category-header::before {
-  content: '';
-  display: inline-block;
-  width: 18px; height: 1px;
-  background: var(--gold);
-  flex-shrink: 0;
-}
-.menu-section-note {
-  padding: 0.6rem 1.6rem;
-  font-size: 0.74rem;
-  color: #7a8fa8;
-  font-weight: 300;
-  border-bottom: 1px solid rgba(21,34,56,0.07);
-  background: rgba(21,34,56,0.02);
-  line-height: 1.55;
-  font-style: italic;
-}
-
-/* ════════════════════════════════════════
-   RESPONSIVE
-════════════════════════════════════════ */
-@media (max-width: 900px) {
-  .about-layout, .visit-layout, .menu-intro { grid-template-columns: 1fr; }
-  .menu-grid { grid-template-columns: 1fr 1fr; }
-  .services-grid { grid-template-columns: 1fr 1fr; }
-  .reviews-grid { grid-template-columns: 1fr; }
-  .footer-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-
-  #nav { padding: 0 1.5rem; }
-  .nav-links { display: none; }
-  .ribbon-item { width: 50%; }
-  .bridge-inner { grid-template-columns: 1fr; }
-}
-@media (max-width: 600px) {
-  .menu-grid { grid-template-columns: 1fr; }
-  .services-grid { grid-template-columns: 1fr; }
-  .ribbon-item { width: 100%; }
-  #nav { padding: 0 1.2rem; }
-
-  .menu-entry {
-    padding: 0.9rem 1rem;
-    gap: 0.5rem;
-    align-items: flex-start;
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',system-ui,sans-serif;
+    font-variant-numeric:tabular-nums;
+    min-height:100vh;
+    -webkit-tap-highlight-color:transparent;
   }
-  .menu-entry-top {
-    flex-wrap: wrap;
-    gap: 0.1rem 0.5rem;
+  h1,h2,h3,.serif{font-family:'Fraunces',serif;}
+  button{font-family:inherit;}
+  input,select,textarea{font-family:inherit;font-size:16px;}
+  #app{max-width:960px;margin:0 auto;padding:0 0 60px;min-height:100vh;}
+
+  /* ---- top bar ---- */
+  .topbar{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 20px 14px;border-bottom:2px solid var(--ink);
+    background:var(--paper);
   }
-  .menu-entry-name {
-    font-size: 0.97rem;
-    flex: 1 1 auto;
+  .topbar .brand{display:flex;align-items:center;gap:10px;}
+  .topbar .brand .mark{
+    width:34px;height:34px;border-radius:50%;background:var(--rust);
+    display:flex;align-items:center;justify-content:center;color:#fff;
+    font-family:'Fraunces',serif;font-weight:700;font-size:16px;flex-shrink:0;
   }
-  .menu-entry-price {
-    font-size: 1rem;
-    font-weight: 700;
-    flex-shrink: 0;
+  .topbar h1{font-size:20px;margin:0;font-weight:600;line-height:1.1;}
+  .topbar .who{font-size:12px;color:var(--ink-soft);margin-top:2px;}
+  .logout-btn{
+    background:none;border:1px solid var(--line);color:var(--ink-soft);
+    padding:8px 14px;border-radius:20px;font-size:13px;cursor:pointer;
   }
-  .menu-entry-desc {
-    font-size: 0.76rem;
+  .logout-btn:active{background:var(--line);}
+
+  /* ---- nav tabs ---- */
+  .tabs{display:flex;gap:2px;padding:14px 16px 0;overflow-x:auto;}
+  .tab{
+    padding:9px 15px;font-size:14px;font-weight:600;color:var(--ink-soft);
+    background:none;border:none;border-bottom:3px solid transparent;
+    cursor:pointer;white-space:nowrap;
   }
-  .menu-tabs {
-    scroll-snap-type: x proximity;
+  .tab.active{color:var(--rust);border-bottom-color:var(--rust);}
+  .content{padding:18px 16px 10px;}
+
+  /* ---- centered auth screens ---- */
+  .auth-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;}
+  .ticket{
+    background:var(--card);border:1px solid var(--line);
+    border-radius:4px;padding:34px 28px 28px;max-width:380px;width:100%;
+    position:relative;box-shadow:0 1px 0 var(--line);
   }
-  .menu-tab {
-    scroll-snap-align: start;
-    padding: 0.85rem 1rem;
-    font-size: 0.68rem;
+  .ticket::before,.ticket::after{
+    content:"";position:absolute;width:18px;height:18px;background:var(--paper);
+    border-radius:50%;top:50%;transform:translateY(-50%);
   }
-}
-
-#about .heading { color: #fff; }
-#about .heading em { color: var(--gold-lt); }
-#about .label { color: var(--gold-lt); }
-#about .about-copy p { color: rgba(255,255,255,0.65); }
-#about .about-copy p strong { color: #fff; }
-#about .about-quote { background: rgba(184,146,74,0.1); border-left-color: var(--gold); }
-#about .about-quote blockquote { color: rgba(255,255,255,0.9); }
-#about .about-quote cite { color: var(--gold-lt); }
-#about .tag { border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.05); }
-#about .tag:hover { background: var(--gold); color: var(--ink); border-color: var(--gold); }
-
-#services .heading { color: var(--navy); }
-#services .heading em { color: var(--gold); }
-#services .label { color: var(--gold); }
-#services .service-tile { background: #fff; border-color: rgba(21,34,56,0.08); }
-#services .service-tile:hover { background: var(--parchment); border-color: rgba(184,146,74,0.3); }
-#services .service-tile h3 { color: var(--navy); }
-#services .service-tile p { color: #4a5e78; }
-#services .service-tile .s-icon { display: block; }
-#services .service-number { color: rgba(21,34,56,0.08); }
-#services .service-badge { border-color: rgba(184,146,74,0.4); color: var(--gold); }
-#services .service-tile::before { background: linear-gradient(to right, var(--gold), transparent); }
-
-#about .cred-card-main { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); }
-#about .cred-card-main::before { background: linear-gradient(to right, var(--gold), var(--gold-lt), transparent); }
-#about .cred-row .cred-stat { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.08); }
-#about .cred-card-wide { background: rgba(0,0,0,0.25); border-color: rgba(184,146,74,0.2); }
-#about .cred-card-wide h4 { color: #fff; }
-#about .cred-card-wide p { color: rgba(255,255,255,0.5); }
-
-/* ── Announcement Banner ── */
-#announcement-bar {
-  background: var(--gold);
-  color: var(--ink);
-  text-align: center;
-  padding: 0.55rem 3rem;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  position: relative;
-  z-index: 1001;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-}
-#announcement-bar a {
-  color: var(--ink);
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-#announcement-bar .ann-icon { font-size: 1rem; }
-#announcement-bar .ann-close {
-  position: absolute; right: 1rem;
-  background: none; border: none;
-  cursor: pointer; font-size: 1.1rem;
-  color: var(--ink); opacity: 0.6;
-  line-height: 1; padding: 0.2rem 0.5rem;
-  transition: opacity 0.2s;
-}
-#announcement-bar .ann-close:hover { opacity: 1; }
-
-/* ── Open/Closed Badge ── */
-#open-badge {
-  display: inline-flex; align-items: center; gap: 0.4rem;
-  padding: 0.3rem 0.8rem;
-  border-radius: 100px;
-  font-size: 0.68rem; font-weight: 700;
-  letter-spacing: 0.1em; text-transform: uppercase;
-  margin-left: 1.2rem;
-  vertical-align: middle;
-}
-#open-badge.is-open {
-  background: rgba(34,197,94,0.15);
-  color: #22c55e;
-  border: 1px solid rgba(34,197,94,0.3);
-}
-#open-badge.is-closed {
-  background: rgba(239,68,68,0.12);
-  color: #ef4444;
-  border: 1px solid rgba(239,68,68,0.25);
-}
-#open-badge .badge-dot {
-  width: 6px; height: 6px; border-radius: 50%;
-  animation: pulse-dot 2s infinite;
-}
-#open-badge.is-open .badge-dot { background: #22c55e; }
-#open-badge.is-closed .badge-dot { background: #ef4444; animation: none; }
-@keyframes pulse-dot {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(0.7); }
-}
-
-/* ── Mobile Hamburger ── */
-.hamburger {
-  display: none;
-  flex-direction: column; gap: 5px;
-  background: none; border: none;
-  cursor: pointer; padding: 0.4rem;
-  margin-left: auto;
-}
-.hamburger span {
-  display: block; width: 24px; height: 2px;
-  background: #fff;
-  border-radius: 2px;
-  transition: all 0.3s ease;
-}
-.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.hamburger.open span:nth-child(2) { opacity: 0; }
-.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-@media (max-width: 768px) {
-  .hamburger { display: flex; }
-  .nav-links {
-    display: none;
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: #0a1220;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    z-index: 999;
-    padding: 2rem;
+  .ticket::before{left:-9px;}
+  .ticket::after{right:-9px;}
+  .ticket h2{font-size:26px;margin:0 0 4px;font-weight:600;}
+  .ticket p.sub{color:var(--ink-soft);font-size:14px;margin:0 0 22px;}
+  .field{margin-bottom:16px;}
+  .field label{display:block;font-size:12px;font-weight:600;color:var(--ink-soft);margin-bottom:6px;}
+  .field select,.field input,.field textarea{
+    width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:3px;
+    background:#fff;color:var(--ink);
   }
-  .nav-links.mobile-open {
-    display: flex !important;
-    animation: mobileNavIn 0.3s ease both;
+  .field textarea{resize:vertical;min-height:70px;}
+  .btn{
+    background:var(--rust);color:#fff;border:none;padding:12px 18px;
+    border-radius:3px;font-weight:600;font-size:14px;cursor:pointer;width:100%;
   }
-  @keyframes mobileNavIn {
-    from { opacity: 0; transform: scale(0.97); }
-    to   { opacity: 1; transform: scale(1); }
+  .btn:active{background:var(--rust-dark);}
+  .btn.secondary{background:none;color:var(--ink);border:1px solid var(--ink);}
+  .btn.ghost{background:none;color:var(--rust);border:1px solid var(--rust);}
+  .btn.small{width:auto;padding:8px 14px;font-size:13px;}
+  .btn.block-space{margin-top:8px;}
+  .error-msg{color:var(--deny);font-size:13px;margin:-8px 0 14px;}
+  .hint{font-size:12px;color:var(--ink-soft);margin-top:14px;text-align:center;}
+
+  /* ---- section header ---- */
+  .sec-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:10px;}
+  .sec-head h2{font-size:22px;margin:0;font-weight:600;}
+  .week-nav{display:flex;align-items:center;gap:10px;}
+  .week-nav button{
+    background:var(--card);border:1px solid var(--line);width:34px;height:34px;
+    border-radius:50%;cursor:pointer;font-size:16px;color:var(--ink);
   }
-  .nav-links li { list-style: none; }
-  .nav-links a {
-    font-size: 1.5rem !important;
-    letter-spacing: 0.1em;
-    color: #ffffff !important;
+  .week-nav .wk-label{font-size:14px;font-weight:600;min-width:150px;text-align:center;}
+
+  /* ---- schedule grid ---- */
+  .grid-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:4px;background:var(--card);}
+  .grid{display:grid;grid-template-columns:130px repeat(7,minmax(108px,1fr));min-width:900px;}
+  .grid .corner{background:var(--ink);color:var(--paper);padding:10px;font-size:11px;font-weight:600;position:sticky;left:0;z-index:2;}
+  .grid .daycol{
+    padding:10px 8px;text-align:center;border-left:1px solid var(--line);background:#F9F5EC;
   }
-  .nav-links a::after { display: none; }
-  #open-badge { display: none; }
-}
+  .grid .daycol .dname{font-size:11px;font-weight:700;letter-spacing:.03em;color:var(--ink-soft);}
+  .grid .daycol .dnum{font-family:'Fraunces',serif;font-size:19px;font-weight:600;}
+  .grid .rowname{
+    padding:10px;font-size:13px;font-weight:600;display:flex;align-items:center;gap:8px;
+    border-top:1px solid var(--line);position:sticky;left:0;background:var(--card);z-index:1;
+  }
+  .avatar{width:24px;height:24px;border-radius:50%;color:#fff;font-size:11px;font-weight:700;
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .cell{
+    border-top:1px solid var(--line);border-left:1px solid var(--line);
+    min-height:56px;padding:5px;display:flex;flex-direction:column;gap:4px;cursor:pointer;
+  }
+  .cell:active{background:#F1EADA;}
+  .chip{
+    border-radius:3px;padding:5px 6px;font-size:11px;color:#fff;line-height:1.25;
+    border-top:2px dashed rgba(255,255,255,.5);
+  }
+  .chip .t{font-weight:700;display:block;}
+  .add-hint{color:var(--line);font-size:18px;text-align:center;line-height:46px;}
+  .grid.readonly .cell{cursor:default;}
+  .grid.readonly .cell:active{background:none;}
 
-.mobile-nav-close {
-  display: none;
-  position: fixed;
-  top: 1.5rem; right: 1.5rem;
-  background: none; border: none;
-  color: #fff; font-size: 2rem;
-  cursor: pointer; line-height: 1;
-  opacity: 0.7; transition: opacity 0.2s;
-  padding: 0.3rem 0.6rem;
-  z-index: 1001;
-}
-.mobile-nav-close:hover { opacity: 1; }
-.nav-links.mobile-open .mobile-nav-close {
-  display: block;
-}
+  /* ---- my week list (employee) ---- */
+  .day-row{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:14px 4px;border-bottom:1px solid var(--line);
+  }
+  .day-row:last-child{border-bottom:none;}
+  .day-row .dlabel{font-size:14px;}
+  .day-row .dlabel .dow{font-weight:700;}
+  .day-row .dlabel .ddate{color:var(--ink-soft);font-size:12px;}
+  .day-row .shift-info{text-align:right;}
+  .day-row .shift-info .t{font-weight:700;font-size:14px;}
+  .day-row .shift-info .off{color:var(--ink-soft);font-size:13px;}
 
-/* ════════════════════════════════════════
-   WEEKLY SPECIALS
-════════════════════════════════════════ */
-#specials { background: var(--navy); }
-#specials .heading-light em { color: var(--gold-lt); }
+  /* ---- cards / lists ---- */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:16px;margin-bottom:12px;}
+  .card .top-row{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:6px;}
+  .card .name{font-weight:700;font-size:14px;}
+  .card .meta{font-size:13px;color:var(--ink-soft);margin:2px 0;}
+  .badge{font-size:11px;font-weight:700;padding:4px 9px;border-radius:20px;white-space:nowrap;}
+  .badge.pending{background:var(--pending-soft);color:var(--pending-ink);}
+  .badge.approved{background:var(--herb-soft);color:var(--herb);}
+  .badge.denied{background:var(--deny-soft);color:var(--deny);}
+  .row-actions{display:flex;gap:8px;margin-top:10px;}
+  .row-actions .btn{width:auto;flex:1;padding:9px;}
+  .empty-note{color:var(--ink-soft);font-size:14px;padding:20px 4px;text-align:center;}
+  .subhead{font-size:12px;font-weight:700;letter-spacing:.02em;color:var(--ink-soft);margin:22px 0 10px;}
+  .subhead:first-child{margin-top:0;}
 
-.specials-week-label {
-  display: inline-flex; align-items: center; gap: 0.6rem;
-  background: rgba(184,146,74,0.15);
-  border: 1px solid rgba(184,146,74,0.3);
-  border-radius: 100px;
-  padding: 0.4rem 1.1rem;
-  font-size: 0.7rem; letter-spacing: 0.12em;
-  text-transform: uppercase; color: var(--gold-lt);
-  font-weight: 600; margin-bottom: 1.5rem;
-}
-.specials-week-label .dot {
-  width: 6px; height: 6px; border-radius: 50%;
-  background: var(--gold); animation: pulse-dot 2s infinite;
-}
+  /* team list */
+  .team-row{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line);}
+  .team-row:last-child{border-bottom:none;}
+  .team-left{display:flex;align-items:center;gap:10px;}
+  .team-left .tname{font-weight:600;font-size:14px;}
+  .team-left .trole{font-size:12px;color:var(--ink-soft);}
+  .pin-tag{font-size:12px;color:var(--ink-soft);background:#F1EADA;padding:3px 8px;border-radius:20px;margin-right:8px;}
+  .icon-btn{background:none;border:none;color:var(--deny);font-size:13px;cursor:pointer;padding:6px;}
 
-.specials-intro {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 3rem; align-items: end; margin-bottom: 3rem;
-}
-.specials-intro-right {
-  font-size: 0.9rem; line-height: 1.8;
-  color: rgba(255,255,255,0.5); font-weight: 300;
-  padding-bottom: 0.4rem;
-}
+  /* availability grid */
+  .avail-day{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line);gap:10px;flex-wrap:wrap;}
+  .avail-day:last-child{border-bottom:none;}
+  .avail-day .adname{font-weight:600;font-size:14px;width:80px;}
+  .toggle-pair{display:flex;border:1px solid var(--line);border-radius:20px;overflow:hidden;flex-shrink:0;}
+  .toggle-pair button{border:none;background:#fff;padding:6px 12px;font-size:12px;font-weight:600;cursor:pointer;color:var(--ink-soft);}
+  .toggle-pair button.on.avail{background:var(--herb);color:#fff;}
+  .toggle-pair button.on.unavail{background:var(--deny);color:#fff;}
+  .avail-times{display:flex;gap:6px;align-items:center;}
+  .avail-times input{padding:6px 8px;width:100px;}
 
-.specials-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2.5rem;
-}
-.special-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 8px;
-  padding: 1.8rem 1.8rem 1.5rem;
-  position: relative;
-  overflow: hidden;
-  transition: border-color 0.2s, background 0.2s;
-}
-.special-card:hover {
-  border-color: rgba(184,146,74,0.35);
-  background: rgba(255,255,255,0.06);
-}
-.special-card::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(to right, var(--gold), transparent);
-}
-.special-day {
-  font-size: 0.62rem; letter-spacing: 0.14em;
-  text-transform: uppercase; color: var(--gold);
-  font-weight: 700; margin-bottom: 0.6rem;
-}
-.special-name {
-  font-family: var(--font-display);
-  font-size: 1.25rem; font-weight: 600;
-  color: #fff; line-height: 1.3; margin-bottom: 0.5rem;
-}
-.special-desc {
-  font-size: 0.8rem; line-height: 1.6;
-  color: rgba(255,255,255,0.5); font-weight: 300;
-  margin-bottom: 1rem;
-}
-.special-price {
-  font-family: var(--font-display);
-  font-size: 1.5rem; font-weight: 300;
-  color: var(--gold-lt);
-}
-.special-badge {
-  position: absolute; top: 1.2rem; right: 1.2rem;
-  background: var(--gold); color: var(--ink);
-  font-size: 0.58rem; letter-spacing: 0.1em;
-  text-transform: uppercase; font-weight: 700;
-  padding: 0.2rem 0.5rem; border-radius: 100px;
-}
+  /* modal */
+  .modal-backdrop{position:fixed;inset:0;background:rgba(38,33,27,.55);display:flex;align-items:flex-end;justify-content:center;z-index:50;}
+  @media(min-width:640px){.modal-backdrop{align-items:center;}}
+  .modal{background:var(--card);border-radius:10px 10px 0 0;padding:22px 20px 26px;width:100%;max-width:440px;max-height:88vh;overflow-y:auto;}
+  @media(min-width:640px){.modal{border-radius:8px;}}
+  .modal h3{margin:0 0 16px;font-size:19px;font-weight:600;}
+  .modal-actions{display:flex;gap:10px;margin-top:18px;}
+  .modal-actions .btn{width:auto;flex:1;}
+  .close-x{position:sticky;top:0;float:right;background:none;border:none;font-size:20px;color:var(--ink-soft);cursor:pointer;}
 
-.specials-update-note {
-  background: rgba(255,255,255,0.03);
-  border: 1px dashed rgba(255,255,255,0.1);
-  border-radius: 8px;
-  padding: 1.4rem 2rem;
-  display: flex; align-items: center; gap: 1.2rem;
-  flex-wrap: wrap;
-}
-.specials-update-note .note-icon { font-size: 1.4rem; flex-shrink: 0; }
-.specials-update-note p {
-  font-size: 0.8rem; line-height: 1.6;
-  color: rgba(255,255,255,0.4); font-weight: 300;
-}
-.specials-update-note p strong { color: rgba(255,255,255,0.7); }
-.specials-update-note a { color: var(--gold-lt); text-decoration: none; }
-.specials-update-note a:hover { text-decoration: underline; }
-
+  .fab{
+    position:fixed;bottom:22px;right:22px;background:var(--rust);color:#fff;border:none;
+    width:54px;height:54px;border-radius:50%;font-size:26px;box-shadow:0 3px 10px rgba(0,0,0,.25);
+    cursor:pointer;z-index:30;
+  }
+  .loading{display:flex;align-items:center;justify-content:center;min-height:100vh;color:var(--ink-soft);}
 </style>
 </head>
 <body>
-
-<!-- ══════════════════════════════════
-     COOKIE CONSENT BANNER
-══════════════════════════════════ -->
-<div id="cookie-banner" role="dialog" aria-label="Cookie consent">
-  <p>
-    <strong>We use cookies</strong> to understand how visitors use our site (via Google Analytics) so we can keep improving your experience. No personal data is sold or shared.
-  </p>
-  <div class="cookie-actions">
-    <button id="cookie-accept">Accept Cookies</button>
-    <button id="cookie-decline">Decline</button>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════
-     NAVIGATION
-══════════════════════════════════ -->
-<div id="announcement-bar">
-  <span class="ann-icon">📣</span>
-  <span>Now serving <strong>Beer, Wine &amp; Wine Slushies!</strong> &nbsp;·&nbsp; Check our <a href="https://www.facebook.com/thecbc3434/" target="_blank">Facebook</a> for this week's daily specials.</span>
-  <button class="ann-close" onclick="this.parentElement.style.display='none'" aria-label="Close">✕</button>
-</div>
-<nav id="nav">
-  <a href="#hero" class="nav-wordmark">
-    <span class="wm-top">Covered Bridge Convenience</span>
-    <span class="wm-bottom">· Est. 2001</span>
-  <span id="open-badge"></span>
-  </a>
-  <ul class="nav-links">
-    <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">✕</button>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#about">Our Story</a></li>
-    <li><a href="#menu">Menu</a></li>
-    <li><a href="#reviews">Reviews</a></li>
-    <li><a href="#visit" class="nav-cta">Visit Us</a></li>
-  </ul>
-  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-<!-- ══════════════════════════════════
-     HERO
-══════════════════════════════════ -->
-<section id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-content">
-    <div class="hero-eyebrow">
-      <div class="line"></div>
-      <span>Salisbury Center, New York </span>
-      <div class="line"></div>
-    </div>
-
-    <h1 class="hero-title">
-      Good Food.<br>
-      <em>Good People.</em>
-      <span class="script-word">Good Times.</span>
-    </h1>
-
-    <p class="hero-sub">
-      Your hometown stop for breakfast, lunch &amp; dinner — plus groceries, gas,<br>
-      and everything in between. Right here on Route 29.
-    </p>
-
-    <div class="hero-actions">
-      <a href="#menu" class="btn-primary">Explore Our Menu</a>
-      <a href="#visit" class="btn-outline">Hours &amp; Directions</a>
-    </div>
-
-    <div class="hero-stats">
-      <div class="stat">
-        <span class="n">4.9★</span>
-        <span class="l">Google Rating</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat">
-        <span class="n">98%</span>
-        <span class="l">Recommend</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat">
-        <span class="n">25+</span>
-        <span class="l">Years Serving</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat">
-        <span class="n">3</span>
-        <span class="l">Meals a Day</span>
-      </div>
-    </div>
-  </div>
-  <div class="hero-slice"></div>
-</section>
-
-<!-- INFO RIBBON -->
-<div class="info-ribbon">
-  <div class="ribbon-item"><div class="dot"></div>2457 State Rt 29, Salisbury Center, NY</div>
-  <div class="ribbon-item"><div class="dot"></div><a href="tel:3154293434">(315) 429-3434</a></div>
-  <div class="ribbon-item"><div class="dot"></div>Dine-In · Takeout · Curbside Pickup</div>
-  <div class="ribbon-item"><div class="dot"></div>Gas · Groceries · Local Goods</div>
-</div>
-
-<!-- ══════════════════════════════════
-     SERVICES
-══════════════════════════════════ -->
-<section id="services" class="section">
-  <div class="container">
-    <div class="reveal">
-      <p class="label">More Than a Restaurant</p>
-      <h2 class="heading">Your one-stop<br><em>destination on Route 29</em></h2>
-    </div>
-    <div class="services-grid" style="margin-top:3rem;">
-      <div class="service-tile reveal">
-        <div class="service-number">01</div>
-        <span class="s-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="12" height="19" rx="1"/><path d="M14 9h2a2 2 0 0 1 2 2v4a1 1 0 0 0 2 0V8l-3-3"/><path d="M2 10h12"/><path d="M6 6v3m4-3v3"/></svg></span>
-        <h3>Gas Station</h3>
-        <p>Top off the tank right on Route 29 — convenient for locals and road-trippers alike.</p>
-        <span class="service-badge">On-site fuel</span>
-      </div>
-      <div class="service-tile reveal reveal-delay-1">
-        <div class="service-number">02</div>
-        <span class="s-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
-        <h3>Grocery Staples</h3>
-        <p>An impressive variety of everyday essentials, ice, drinks, and more — all in one stop.</p>
-        <span class="service-badge">In-store shopping</span>
-      </div>
-      <div class="service-tile reveal reveal-delay-2">
-        <div class="service-number">03</div>
-        <span class="s-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7" stroke-width="2.5"/></svg></span>
-        <h3>Local Merchandise</h3>
-        <p>Regional goods and local favorites — a great stop for visitors exploring the area.</p>
-        <span class="service-badge">Shop local</span>
-      </div>
-      <div class="service-tile reveal">
-        <div class="service-number">04</div>
-        <span class="s-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h16l-1.5 10a2 2 0 0 1-2 1.5H7.5a2 2 0 0 1-2-1.5L4 9z"/><path d="M8 9V6a4 4 0 0 1 8 0v3"/></svg></span>
-        <h3>Takeout &amp; Curbside</h3>
-        <p>Call ahead, swing by, and grab your order hot and ready. Fast, easy, no fuss.</p>
-        <span class="service-badge">Call (315) 429-3434</span>
-      </div>
-      <div class="service-tile reveal reveal-delay-1">
-        <div class="service-number">05</div>
-        <span class="s-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6h3v7a1 1 0 0 0 2 0z"/></svg></span>
-        <h3>Dine-In Seating</h3>
-        <p>Comfortable seating with a warm, unhurried small-town atmosphere. Come stay a while.</p>
-        <span class="service-badge">Eat outside too</span>
-      </div>
-      <div class="service-tile reveal reveal-delay-2">
-        <div class="service-number">06</div>
-        <span class="s-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="4" r="1"/><path d="M9 9h4l1.5 5H18"/><path d="M9 9l-1 7h5"/><path d="M13 21a5 5 0 1 1-5-5"/></svg></span>
-        <h3>Fully Accessible</h3>
-        <p>Wheelchair accessible entrance, parking, restroom, and seating — everyone is welcome here.</p>
-        <span class="service-badge">ADA accessible</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════
-     ABOUT
-══════════════════════════════════ -->
-<section id="about" class="section">
-  <div class="container">
-    <div class="about-layout">
-      <div class="about-copy reveal">
-        <p class="label">Our Story</p>
-        <h2 class="heading heading-light">A family business<br><em>three decades strong</em></h2>
-
-        <p>It all started as the <strong>Covered Bridge Cafe</strong>, operating out of Moore's Market — founded by <strong>Art and Christine Egan</strong> and their son Mike Manchester. In 2001, their permanent home on Route 29 was built by local craftsman <strong>John Mowers</strong>, right here in the heart of Salisbury Center.</p>
-
-        <p>Since 2016, the business has been proudly owned and operated by <strong>Mike &amp; Heather Manchester</strong>. On any given day, you're likely to see one of their four children — Greg, Kiersten, Alyson, or Cameron — working alongside them. It's a true family affair, every single day.</p>
-
-        <div class="about-quote">
-          <blockquote>"A clean, comfortable, fun place for both our local and seasonal guests to gather."</blockquote>
-          <cite>— Mike &amp; Heather Manchester, Owners</cite>
-        </div>
-
-        <div class="about-tags">
-          <span class="tag">Family Owned</span>
-          <span class="tag">Est. 2001</span>
-          <span class="tag">Small Town Proud</span>
-          <span class="tag">Local Ingredients</span>
-          <span class="tag">Affordable Prices</span>
-          <span class="tag">Locally Operated</span>
-        </div>
-      </div>
-
-      <div class="about-visual-stack reveal reveal-delay-2">
-
-        <div class="cred-card-main">
-          <div class="cred-score">
-            <div class="big-num">4.9</div>
-            <div class="cred-score-right">
-              <div class="stars">★★★★★</div>
-              <div class="source">Google Reviews</div>
-            </div>
-          </div>
-          <p class="cred-quote">
-            "Great small town atmosphere! Great food at good prices! Feels like being home — these people are great."
-            <cite>— Verified Google Reviewer</cite>
-          </p>
-        </div>
-
-        <div class="cred-row">
-          <div class="cred-stat">
-            <div class="stat-val">98%</div>
-            <div class="stat-lbl">Recommend on Facebook</div>
-          </div>
-          <div class="cred-stat">
-            <div class="stat-val">25+</div>
-            <div class="stat-lbl">Years Serving the Community</div>
-          </div>
-        </div>
-
-        <div class="cred-card-wide">
-          <div style="width:64px;height:64px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid rgba(184,146,74,0.4);">
-            <img src="./images/IMG_9077.jpeg"
-                 alt="Mike and Heather Manchester, owners of The Covered Bridge Convenience"
-                 style="width:100%;height:100%;object-fit:cover;object-position:center 80%;transform:scale(2.2);transform-origin:center 25%;">
-          </div>
-          <div>
-            <h4>Owned by Mike &amp; Heather Manchester</h4>
-            <p>Family-run since 2001 — you'll often see their kids Greg, Kiersten, Alyson &amp; Cameron behind the counter.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════
-     BRIDGE STORY
-══════════════════════════════════ -->
-<div id="bridge">
-  <div class="bridge-inner reveal">
-    <div class="bridge-icon">🌉</div>
-    <div class="bridge-text">
-      <h3>Named for a landmark built in 1875</h3>
-      <p>A short walk from our door stands the <em>Salisbury Center Covered Bridge</em> — built by Alvah Hopson, spanning Spruce Creek, and listed on the <em>National Register of Historic Places</em>. It's the only covered bridge remaining in Herkimer County, appears on the town's official seal, and is described by visitors as "straight from a Hallmark movie." We carry its name with pride: <em>built by community, for community.</em></p>
-      <div class="bridge-facts">
-        <div class="bridge-fact">Built 1875</div>
-        <div class="bridge-fact">National Register of Historic Places</div>
-        <div class="bridge-fact">Herkimer County Landmark</div>
-        <div class="bridge-fact">Spans Spruce Creek</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════
-     MENU
-══════════════════════════════════ -->
-<section id="menu" class="section">
-  <div class="container">
-    <div class="menu-intro">
-      <div class="reveal">
-        <p class="label">What We Serve</p>
-        <h2 class="heading">Something for<br><em>every appetite</em></h2>
-      </div>
-      <p class="menu-intro-right reveal reveal-delay-1">
-        From hearty breakfasts to comfort-food dinners, our kitchen runs all day. We serve fresh, made-to-order meals with the kind of care that only a family business can offer.
-      </p>
-    </div>
-
-    <div class="menu-tabs" id="menuTabs">
-      <button class="menu-tab active" data-tab="breakfast" onclick="switchMenuTab('breakfast')">Breakfast</button>
-      <button class="menu-tab" data-tab="appetizers" onclick="switchMenuTab('appetizers')">Appetizers</button>
-      <button class="menu-tab" data-tab="quesadillas" onclick="switchMenuTab('quesadillas')">Quesadillas</button>
-      <button class="menu-tab" data-tab="salads" onclick="switchMenuTab('salads')">Salads</button>
-      <button class="menu-tab" data-tab="wraps" onclick="switchMenuTab('wraps')">Wraps</button>
-      <button class="menu-tab" data-tab="sandwiches" onclick="switchMenuTab('sandwiches')">Sandwiches</button>
-      <button class="menu-tab" data-tab="subs" onclick="switchMenuTab('subs')">Subs</button>
-      <button class="menu-tab" data-tab="burgers" onclick="switchMenuTab('burgers')">Burgers</button>
-      <button class="menu-tab" data-tab="chicken" onclick="switchMenuTab('chicken')">Chicken</button>
-      <button class="menu-tab" data-tab="drinks" onclick="switchMenuTab('drinks')">Drinks</button>
-    </div>
-
-    <div id="menu-panels-container">
-
-      <!-- ─── BREAKFAST ─── -->
-      <div class="menu-panel active" id="tab-breakfast">
-        <div class="menu-category-header">Eggs — Served until 11AM</div>
-        <div class="menu-section-note">Served with Toasted White, Wheat, Rye, or Italian</div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Two Eggs</span><span class="menu-entry-price">$4.50</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Two Eggs with Meat</span><span class="menu-entry-price">$6.75</span></div><p class="menu-entry-desc">Choice of Sausage Patties, Bacon, or Ham</p></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Three Eggs</span><span class="menu-entry-price">$5.50</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Three Eggs with Meat</span><span class="menu-entry-price">$7.75</span></div><p class="menu-entry-desc">Choice of Sausage Patties, Bacon, or Ham</p></div></div>
-
-        <div class="menu-category-header">Three Egg Omelette</div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Three Egg Omelette</span><span class="menu-entry-price">$8.00</span></div><p class="menu-entry-desc">Served with Toasted White, Wheat, Rye, or Italian. Choice of fillings +$0.60 each: Ham, Onions, Peppers, Tomato, Broccoli, Sausage, Bacon, Mushroom. Choice of Cheese: American, Swiss, or Provolone.</p></div></div>
-
-        <div class="menu-category-header">Breakfast Sandwiches</div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Meat, Egg &amp; Cheese</span><span class="menu-entry-price">$4.75</span></div><p class="menu-entry-desc">Choice of Meat: Bacon, Ham, or Sausage &middot; Choice of Cheese: American, Swiss, or Provolone &middot; On a Hard Roll, English Muffin, Bagel, or Toast &middot; Extra Meat +$1.50 &middot; Extra Egg +$1.50</p></div></div>
-
-        <div class="menu-category-header">French Toast</div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">One Slice of French Toast</span><span class="menu-entry-price">$4.50</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">One Slice with Meat</span><span class="menu-entry-price">$6.75</span></div><p class="menu-entry-desc">Choice of Sausage Patties, Bacon, or Ham</p></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Two Slices of French Toast</span><span class="menu-entry-price">$5.75</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Two Slices with Meat</span><span class="menu-entry-price">$8.00</span></div><p class="menu-entry-desc">Choice of Sausage Patties, Bacon, or Ham</p></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Three Slices of French Toast</span><span class="menu-entry-price">$7.00</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Three Slices with Meat</span><span class="menu-entry-price">$9.25</span></div><p class="menu-entry-desc">Choice of Sausage Patties, Bacon, or Ham</p></div></div>
-
-        <div class="menu-category-header">Pancakes</div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">One Pancake</span><span class="menu-entry-price">$6.00</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">One Pancake with Meat</span><span class="menu-entry-price">$8.25</span></div><p class="menu-entry-desc">Choice of Sausage Patties, Bacon, or Ham</p></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Two Pancakes</span><span class="menu-entry-price">$8.25</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Two Pancakes with Meat</span><span class="menu-entry-price">$10.50</span></div><p class="menu-entry-desc">Choice of Sausage Patties, Bacon, or Ham</p></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Add Chocolate Chips</span><span class="menu-entry-price">+$1.50</span></div></div></div>
-
-        <div class="menu-category-header">Sides &amp; Extras</div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Home Fries</span><span class="menu-entry-price">$3.25</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Home Fries with Onions &amp; Peppers</span><span class="menu-entry-price">$4.50</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Bacon, Sausage, or Ham</span><span class="menu-entry-price">$3.75</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Hash</span><span class="menu-entry-price">$3.75</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Toast</span><span class="menu-entry-price">$1.00</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Bagel, Hard Roll, or English Muffin</span><span class="menu-entry-price">$2.00</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Cream Cheese</span><span class="menu-entry-price">$1.00</span></div></div></div>
-
-        <div class="menu-category-header">Drinks</div>
-        <div class="menu-section-note">Free Refills on Fountain Soda, Coffee, and Iced Tea</div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Coffee or Hot Tea</span><span class="menu-entry-price">$2.25</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Hot Chocolate</span><span class="menu-entry-price">$3.00</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Milk</span><span class="menu-entry-price">$2.50</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Chocolate Milk</span><span class="menu-entry-price">$2.75</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Orange Juice</span><span class="menu-entry-price">$2.75</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Fountain Soda</span><span class="menu-entry-price">$2.50</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Iced Tea</span><span class="menu-entry-price">$2.50</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Mimosas</span><span class="menu-entry-price">$7.00</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Cooler Drinks</span><span class="menu-entry-price">Priced as Marked</span></div><p class="menu-entry-desc">Wide selection of bottled &amp; canned beverages</p></div></div>
-      </div>
-
-      <!-- ─── APPETIZERS ─── -->
-      <div class="menu-panel" id="tab-appetizers">
-        <div class="menu-section-note">Dipping Sauces included: BBQ, Ranch, Honey Mustard, Buffalo (Mild, Medium, Hot), Blue Cheese, Sour Cream, Tiger Sauce, Marinara &middot; Extra Sauce +$0.50</div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Chicken Tenders (3)</span><span class="menu-entry-price">$6.00</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Mozzarella Sticks (5)</span><span class="menu-entry-price">$6.00</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Pizza Logs (5)</span><span class="menu-entry-price">$8.50</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Breaded Mushrooms</span><span class="menu-entry-price">$6.00</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Boneless Wings (10)</span><span class="menu-entry-price">$9.25</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Onion Petals</span><span class="menu-entry-price">$5.00</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Breaded Cauliflower</span><span class="menu-entry-price">$6.00</span></div></div></div>
-        <div class="menu-category-header">French Fries</div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">French Fries — Small</span><span class="menu-entry-price">$3.25</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">French Fries — Regular</span><span class="menu-entry-price">$4.00</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">French Fries — Large</span><span class="menu-entry-price">$6.00</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Curly or Sweet Potato Fries — Small</span><span class="menu-entry-price">$3.75</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Curly or Sweet Potato Fries — Regular</span><span class="menu-entry-price">$4.50</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Curly or Sweet Potato Fries — Large</span><span class="menu-entry-price">$7.00</span></div></div></div>
-      </div>
-
-      <!-- ─── QUESADILLAS ─── -->
-      <div class="menu-panel" id="tab-quesadillas">
-        <div class="menu-section-note">Served with Salsa and Sour Cream &middot; Add Fresh Tomatoes, Peppers, or Onions +$0.50 each</div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Cheese Quesadilla</span><span class="menu-entry-price">$6.75</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Grilled Chicken Quesadilla</span><span class="menu-entry-price">$9.00</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Buffalo Grilled Chicken Quesadilla</span><span class="menu-entry-price">$9.50</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Grilled Philly Steak Quesadilla</span><span class="menu-entry-price">$9.75</span></div></div></div>
-      </div>
-
-      <!-- ─── SALADS ─── -->
-      <div class="menu-panel" id="tab-salads">
-        <div class="menu-section-note">Regular $12.50 &middot; Large $16.50 &middot; Ask server for choice of dressings &middot; Extra dressing +$1.50</div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Antipasto</span><span class="menu-entry-price">From $12.50</span></div><p class="menu-entry-desc">Iceberg lettuce topped with Tomatoes, Cucumbers, Ham, Turkey, Salami, Pepperoni, American Cheese, Cheddar Cheese, and Onions</p></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Chef Salad</span><span class="menu-entry-price">From $12.50</span></div><p class="menu-entry-desc">Iceberg lettuce topped with Tomatoes, Cucumbers, Ham, Turkey, Swiss Cheese, and Provolone Cheese</p></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Grilled Chicken Salad</span><span class="menu-entry-price">From $12.50</span></div><p class="menu-entry-desc">Iceberg lettuce topped with Tomatoes, Cucumbers, Black Olives, Mozzarella, and Grilled Chicken</p></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Buffalo Chicken Salad</span><span class="menu-entry-price">From $12.50</span></div><p class="menu-entry-desc">Iceberg lettuce topped with Tomatoes, Cucumbers, Monterey Jack and Cheddar Cheese, and Crispy Buffalo Chicken</p></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Chicken Caesar Salad</span><span class="menu-entry-price">From $12.50</span></div><p class="menu-entry-desc">Grilled Chicken on a bed of Romaine Lettuce and Croutons tossed in Caesar Dressing</p></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Side Toss Salad</span><span class="menu-entry-price">$4.25</span></div><p class="menu-entry-desc">Iceberg Lettuce, Tomatoes, Cucumbers, and Onions</p></div></div>
-      </div>
-
-      <!-- ─── WRAPS ─── -->
-      <div class="menu-panel" id="tab-wraps">
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Chicken Bacon Ranch Wrap</span><span class="menu-entry-price">$9.00</span></div><p class="menu-entry-desc">Choice of Grilled or Crispy Chicken with Bacon, Ranch, Lettuce, Tomatoes, Monterey Jack and Cheddar Cheese</p></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Buffalo Chicken Wrap</span><span class="menu-entry-price">$9.00</span></div><p class="menu-entry-desc">Choice of Grilled or Crispy Buffalo Chicken with Ranch, Lettuce, Tomatoes, Monterey Jack and Cheddar Cheese</p></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Philly Wrap</span><span class="menu-entry-price">$9.50</span></div><p class="menu-entry-desc">Grilled Philly Steak with mushrooms, peppers, onions, and mozzarella cheese, wrapped up with Mayonnaise, Lettuce, and Tomatoes</p></div></div>
-      </div>
-
-      <!-- ─── SANDWICHES ─── -->
-      <div class="menu-panel" id="tab-sandwiches">
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Grilled Cheese</span><span class="menu-entry-price">$5.50</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Grilled Cheese with Tomato</span><span class="menu-entry-price">$5.75</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Grilled Cheese with Ham or Bacon</span><span class="menu-entry-price">$6.50</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">BLT</span><span class="menu-entry-price">$6.50</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Cold Ham or Turkey</span><span class="menu-entry-price">$5.75</span></div></div></div>
-      </div>
-
-      <!-- ─── SUBS ─── -->
-      <div class="menu-panel" id="tab-subs">
-        <div class="menu-section-note">Cold Subs dressed with Mayo, House Oil, Lettuce, Tomato, Onion, and American, Provolone, or Swiss Cheese &middot; Additional toppings: Banana Peppers, Pickles, Black Olives, Cucumbers, or Green Peppers &middot; Add Bacon: Sm +$2.75 &middot; Lrg +$3.50</div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Ham, Turkey, or Salami</span><span class="menu-entry-price">Sm $7.50 · Lg $9.50</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Mixed (Ham &amp; Salami)</span><span class="menu-entry-price">Sm $7.50 · Lg $9.50</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">BLT</span><span class="menu-entry-price">Sm $8.50 · Lg $10.50</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Veggie</span><span class="menu-entry-price">Sm $7.00 · Lg $9.00</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Chicken Tender</span><span class="menu-entry-price">Sm $8.50 · Lg $10.50</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Buffalo Tender</span><span class="menu-entry-price">Sm $8.50 · Lg $10.50</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Philly Steak &amp; Mozzarella</span><span class="menu-entry-price">Sm $9.00 · Lg $11.50</span></div><p class="menu-entry-desc">With Peppers, Mushrooms &amp; Onions</p></div></div>
-      </div>
-
-      <!-- ─── BURGERS ─── -->
-      <div class="menu-panel" id="tab-burgers">
-        <div class="menu-category-header">1/4 lb Burgers</div>
-        <div class="menu-section-note">On a Toasted Bun dressed with Mayonnaise, Lettuce, Tomato, and Onions &middot; Add Bacon +$2.25</div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Cheeseburger</span><span class="menu-entry-price">$4.75</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Swiss Mushroom Cheeseburger</span><span class="menu-entry-price">$5.75</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Double Cheeseburger</span><span class="menu-entry-price">$7.50</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Mexican Cheeseburger</span><span class="menu-entry-price">$5.75</span></div></div></div>
-        <div class="menu-category-header">1/3 lb Black Angus Cheeseburger</div>
-        <div class="menu-section-note">Grass Fed &amp; Locally Raised (Indian Ladder Farms) &middot; On a Toasted Bun dressed with Mayonnaise, Lettuce, Tomato, and Onions</div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Black Angus Cheeseburger</span><span class="menu-entry-price">$8.25</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Black Angus Swiss Mushroom Cheeseburger</span><span class="menu-entry-price">$9.25</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Black Angus Bacon Cheeseburger</span><span class="menu-entry-price">$10.50</span></div><span class="menu-entry-tag">Fan Favorite</span></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Black Angus Mexican Cheeseburger</span><span class="menu-entry-price">$9.25</span></div></div></div>
-      </div>
-
-      <!-- ─── CHICKEN SANDWICHES ─── -->
-      <div class="menu-panel" id="tab-chicken">
-        <div class="menu-section-note">Served on a Grilled Hard Roll</div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Chicken Deluxe</span><span class="menu-entry-price">$7.50</span></div><p class="menu-entry-desc">Grilled Chicken with Melted Cheese, Mayonnaise, Lettuce, Tomato, and Onion &middot; With Bacon $9.50</p></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Buffalo Chicken</span><span class="menu-entry-price">$8.00</span></div><p class="menu-entry-desc">Choice of Grilled or Crispy Chicken with Ranch, Lettuce, and Tomato</p></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Mexican Chicken</span><span class="menu-entry-price">$8.50</span></div><p class="menu-entry-desc">Grilled Chicken topped with our Homemade Mexican Sauce and Melted Cheese</p></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Swiss Mushroom Chicken</span><span class="menu-entry-price">$8.50</span></div><p class="menu-entry-desc">Grilled Chicken with Grilled Mushrooms and Melted Swiss Cheese, dressed with Mayonnaise, Lettuce, Tomato, and Onions</p></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Crispy Tangy Carolina</span><span class="menu-entry-price">$8.00</span></div><p class="menu-entry-desc">Crispy Chicken with Tangy Carolina Sauce, Lettuce, and Dill Pickles</p><span class="menu-entry-tag">Fan Favorite</span></div></div>
-      </div>
-
-      <!-- ─── DRINKS ─── -->
-      <div class="menu-panel" id="tab-drinks">
-        <div class="menu-section-note">Now Serving Beer, Wine &amp; Wine Slushies! &middot; Free Refills on Fountain Soda, Coffee, and Iced Tea</div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Fountain Soda</span><span class="menu-entry-price">$2.50</span></div><p class="menu-entry-desc">Ginger Ale, Root Beer, Cola, Diet Cola, Lemon Lime, or Mountain Dew &middot; Free refills</p></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Coffee or Hot Tea</span><span class="menu-entry-price">$2.25</span></div><p class="menu-entry-desc">Free refills</p></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Fresh Brewed Iced Tea</span><span class="menu-entry-price">$2.50</span></div><p class="menu-entry-desc">Free refills</p></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Hot Chocolate</span><span class="menu-entry-price">$3.00</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Milk</span><span class="menu-entry-price">$2.50</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Chocolate Milk</span><span class="menu-entry-price">$2.75</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Orange Juice</span><span class="menu-entry-price">$2.75</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Mimosas</span><span class="menu-entry-price">$7.00</span></div></div></div>
-        <div class="menu-entry"><div class="menu-entry-body"><div class="menu-entry-top"><span class="menu-entry-name">Beer, Wine &amp; Wine Slushies</span><span class="menu-entry-price">Ask Us</span></div><p class="menu-entry-desc">Wide selection of cooler drinks also available, priced as marked</p></div></div>
-      </div>
-
-    </div>
-
-    <div class="specials-banner reveal">
-      <div>
-        <h3>Daily Specials Posted Every Week</h3>
-        <p>Follow us on <a href="https://www.facebook.com/thecbc3434/" target="_blank">Facebook @thecbc3434</a> and <a href="https://www.instagram.com/covered_bridge_convenience/" target="_blank">Instagram @covered_bridge_convenience</a> to see what's on today.</p>
-      </div>
-      <a href="https://www.facebook.com/thecbc3434/" target="_blank" class="btn-primary" style="white-space:nowrap">See Today's Specials</a>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════
-     FAVORITES
-══════════════════════════════════ -->
-<section id="favorites" class="section" style="padding:4.5rem 2rem;">
-  <div class="container">
-    <div class="fav-header">
-      <div class="reveal">
-        <p class="label" style="color:var(--gold-lt)">Guest Favorites</p>
-        <h2 class="heading heading-light" style="font-size:clamp(1.6rem,3vw,2.4rem);margin-bottom:0">What people can't stop ordering</h2>
-      </div>
-    </div>
-    <div class="fav-scroll reveal" id="fav-scroll">
-      <div class="fav-pill"><span class="star">★</span> 1/3 lb Angus Bacon Cheeseburger</div>
-      <div class="fav-pill"><span class="star">★</span> Chicken Bacon Ranch Wrap</div>
-      <div class="fav-pill"><span class="star">★</span> Boneless Wings (10)</div>
-      <div class="fav-pill"><span class="star">★</span> Breakfast Sandwich</div>
-      <div class="fav-pill"><span class="star">★</span> Philly Steak &amp; Mozzarella Sub</div>
-      <div class="fav-pill"><span class="star">★</span> Buffalo Chicken Salad</div>
-      <div class="fav-pill"><span class="star">★</span> Swiss Mushroom Cheeseburger</div>
-      <div class="fav-pill"><span class="star">★</span> Three Egg Omelette</div>
-      <div class="fav-pill"><span class="star">★</span> Crispy Tangy Carolina</div>
-      <div class="fav-pill"><span class="star">★</span> Pizza Logs</div>
-      <div class="fav-pill"><span class="star">★</span> Wine Slushies</div>
-      <div class="fav-pill"><span class="star">★</span> Fresh-Brewed Coffee</div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════
-     REVIEWS
-══════════════════════════════════ -->
-<section id="reviews" class="section">
-  <div class="container">
-    <div class="reviews-header">
-      <div class="reveal">
-        <p class="label">What the Community Says</p>
-        <h2 class="heading">Words straight<br><em>from our guests</em></h2>
-      </div>
-      <div class="review-aggregate reveal">
-        <div class="review-agg-score">4.9</div>
-        <div class="review-agg-right">
-          <div class="stars">★★★★★</div>
-          <div class="count">Google · 98% Recommend on Facebook</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="reviews-grid">
-      <div class="review-card reveal">
-        <span class="review-open-quote">"</span>
-        <p class="review-body">Great small town atmosphere! Great food at good prices! Also carries a lot of items you may need.</p>
-        <div class="review-footer">
-          <div class="reviewer-info">
-            <div class="name">Google Reviewer</div>
-            <div class="via">via Google Reviews</div>
-            <div class="verified">✔ Verified</div>
-          </div>
-          <div class="review-stars">★★★★★</div>
-        </div>
-      </div>
-
-      <div class="review-card reveal reveal-delay-1">
-        <span class="review-open-quote">"</span>
-        <p class="review-body">Found this gem while motorcycling. It is well worth the stop. Felt like being home. These people are great, the food is awesome. Do yourself a favor and stop by.</p>
-        <div class="review-footer">
-          <div class="reviewer-info">
-            <div class="name">Passing Traveler</div>
-            <div class="via">via Google Reviews</div>
-            <div class="verified">✔ Verified</div>
-          </div>
-          <div class="review-stars">★★★★★</div>
-        </div>
-      </div>
-
-      <div class="review-card reveal">
-        <span class="review-open-quote">"</span>
-        <p class="review-body">They have the best food and prices around. Very friendly, love serving the public. It is operated by a fine family.</p>
-        <div class="review-footer">
-          <div class="reviewer-info">
-            <div class="name">Terrence Frederick Sr.</div>
-            <div class="via">via Restaurant Guru</div>
-            <div class="verified">✔ Verified</div>
-          </div>
-          <div class="review-stars">★★★★★</div>
-        </div>
-      </div>
-
-      <div class="review-card reveal reveal-delay-1">
-        <span class="review-open-quote">"</span>
-        <p class="review-body">Hubby got the 1/3 lb Angus Bacon Cheeseburger and said it was phenomenal! I got the Grilled Chicken Deluxe — so good and so full of flavor!</p>
-        <div class="review-footer">
-          <div class="reviewer-info">
-            <div class="name">Local Guest</div>
-            <div class="via">via Facebook</div>
-            <div class="verified">✔ Verified</div>
-          </div>
-          <div class="review-stars">★★★★★</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════
-     CTA BANNER
-══════════════════════════════════ -->
-<section id="cta-banner">
-  <div class="cta-bg"></div>
-  <div class="cta-content reveal">
-    <div class="cta-script">Come on in.</div>
-    <h2 class="cta-title">You're always welcome at the Covered Bridge</h2>
-    <p class="cta-sub">Whether you're a lifelong regular or just passing through Herkimer County for the first time.</p>
-    <div class="cta-actions">
-      <a href="tel:3154293434" class="btn-primary">📞 Call (315) 429-3434</a>
-      <a href="#visit" class="btn-outline">Get Directions</a>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════
-     VISIT
-══════════════════════════════════ -->
-<section id="visit" class="section">
-  <div class="container">
-    <div class="visit-layout">
-      <div class="visit-details reveal">
-        <p class="label" style="color:var(--gold-lt)">Plan Your Visit</p>
-        <h2 class="heading heading-light">Find us in<br><em>Salisbury Center</em></h2>
-
-        <h3>Address</h3>
-        <p>2457 State Route 29<br>Salisbury Center, NY 13454</p>
-
-        <h3>Phone</h3>
-        <p><a href="tel:3154293434">(315) 429-3434</a></p>
-
-        <h3>Hours</h3>
-        <table class="hours-table">
-          <tr class="closed"><td>Monday</td><td>Closed</td></tr>
-          <tr class="open"><td>Tuesday</td><td>10:00 AM – 6:00 PM</td></tr>
-          <tr class="open"><td>Wednesday</td><td>8:00 AM – 8:00 PM</td></tr>
-          <tr class="open"><td>Thursday</td><td>8:00 AM – 8:00 PM</td></tr>
-          <tr class="open"><td>Friday</td><td>8:00 AM – 8:00 PM</td></tr>
-          <tr class="open"><td>Saturday</td><td>8:00 AM – 8:00 PM</td></tr>
-          <tr class="open"><td>Sunday</td><td>8:00 AM – 8:00 PM</td></tr>
-        </table>
-        <p style="font-size:0.7rem;margin-top:0.6rem;opacity:0.35;font-style:italic;">*Hours may vary — call ahead or check Facebook to confirm.</p>
-
-        <h3>We Accept</h3>
-        <div class="payment-row">
-          <span class="pay-badge">Visa</span>
-          <span class="pay-badge">Mastercard</span>
-          <span class="pay-badge">Discover</span>
-          <span class="pay-badge">Cash</span>
-        </div>
-
-        <h3>Follow Us</h3>
-        <div class="social-row">
-          <a href="https://www.facebook.com/thecbc3434/" target="_blank" class="social-link">📘 Facebook</a>
-          <a href="https://www.instagram.com/covered_bridge_convenience/" target="_blank" class="social-link">📸 Instagram</a>
-        </div>
-
-        <a href="tel:3154293434" class="call-button">📞 &nbsp;Call Us Now</a>
-      </div>
-
-      <div class="reveal reveal-delay-2">
-        <div class="map-frame">
-         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4422.340770153992!2d-74.79746088899583!3d43.14073498496162!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89dec8bbeda84f6d%3A0x811a6458ceeb7368!2sCovered%20Bridge%20Convenience!5e1!3m2!1sen!2sus!4v1773427988987!5m2!1sen!2sus" 
-           width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-         </iframe>
-        </div>
-        <p style="font-size:0.72rem;color:rgba(255,255,255,0.25);margin-top:0.8rem;text-align:center;letter-spacing:0.06em;">
-          2457 State Route 29 · Salisbury Center, NY 13454
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════
-     FOOTER
-══════════════════════════════════ -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <div class="script">The Covered Bridge Convenience</div>
-      <p>A family-owned restaurant, deli, and convenience store serving Salisbury Center since 2001. Named in honor of the historic Salisbury Center Covered Bridge — built 1875, listed on the National Register of Historic Places.</p>
-    </div>
-    <div class="footer-col">
-      <h4>Quick Links</h4>
-      <ul>
-        <li><a href="#about">Our Story</a></li>
-        <li><a href="#menu">Menu</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#reviews">Reviews</a></li>
-        <li><a href="#visit">Hours &amp; Directions</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Contact</h4>
-      <ul>
-        <li><a href="tel:3154293434">(315) 429-3434</a></li>
-        <li><a href="#">2457 State Rt 29</a></li>
-        <li><a href="#">Salisbury Center, NY</a></li>
-        <li style="margin-top:1rem"><a href="https://www.facebook.com/thecbc3434/" target="_blank">Facebook</a></li>
-        <li><a href="https://www.instagram.com/covered_bridge_convenience/" target="_blank">Instagram</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2025 The Covered Bridge Convenience · Owned &amp; Operated by Mike &amp; Heather Manchester</p>
-    <p>Salisbury Center, Herkimer County, New York</p>
-  </div>
-</footer>
-
-
-
-<!-- ══════════════════════════════════
-     JS: Cookie Consent + Nav + Reveal
-══════════════════════════════════ -->
-<script>
-// ── Cookie Consent ──
-(function() {
-  var banner = document.getElementById('cookie-banner');
-  var consent = localStorage.getItem('cbc_cookie_consent');
-
-  // Show banner if no decision yet
-  if (!consent) {
-    setTimeout(function() {
-      banner.classList.add('visible');
-    }, 800);
-  }
-
-  document.getElementById('cookie-accept').addEventListener('click', function() {
-    localStorage.setItem('cbc_cookie_consent', 'accepted');
-    banner.style.transition = 'transform 0.3s ease';
-    banner.style.transform = 'translateY(100%)';
-    setTimeout(function() { banner.style.display = 'none'; }, 350);
-    // Fire GA now that user has consented
-    if (typeof loadGA === 'function') loadGA();
-  });
-
-  document.getElementById('cookie-decline').addEventListener('click', function() {
-    localStorage.setItem('cbc_cookie_consent', 'declined');
-    banner.style.transition = 'transform 0.3s ease';
-    banner.style.transform = 'translateY(100%)';
-    setTimeout(function() { banner.style.display = 'none'; }, 350);
-  });
-})();
-
-// ── Tab switcher ──
-window.switchMenuTab = function(tabId) {
-  document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
-  document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
-  var tab = document.querySelector('.menu-tab[data-tab="' + tabId + '"]');
-  var panel = document.getElementById('tab-' + tabId);
-  if (tab) tab.classList.add('active');
-  if (panel) panel.classList.add('active');
+<div id="app"><div class="loading">Loading Shift Board…</div></div>
+
+<script type="module">
+/* ============ Firebase (shared storage across everyone's phones) ============ */
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
+import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
+
+// 👇 Replace this with the config object from your Firebase project (see setup notes)
+const firebaseConfig = {
+  apiKey: "AIzaSyA7un6qmWdYwsXiaiSkq4kMIJqpLafum24",
+  authDomain: "cbc-schedule.firebaseapp.com",
+  projectId: "cbc-schedule",
+  storageBucket: "cbc-schedule.firebasestorage.app",
+  messagingSenderId: "442268723552",
+  appId: "1:442268723552:web:33eeb18c396c2f396c5605"
+};
+const fbApp = initializeApp(firebaseConfig);
+const db = getFirestore(fbApp);
+
+/* ============ constants ============ */
+const DAY_NAMES=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+const EMP_COLORS=['#B8451F','#54633C','#B6821F','#3E6B6B','#7A4B6B','#3B5A7A','#8A5A2E','#5C5C3D','#A84A66','#3E7A5A'];
+
+/* ============ state ============ */
+let state={
+  employees:[],
+  requests:[],
+  timeEntries:[],
+  restaurantName:'',
+  scheduleCache:{}, // weekKey -> shifts array
+  currentUser:null,
+  view:'login',
+  weekStart:getMonday(new Date()),
+  modal:null,
+  loading:true,
+  error:''
 };
 
-// ── Nav scroll state ──
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 60);
-}, { passive: true });
+/* ============ date helpers ============ */
+function getMonday(d){
+  const date=new Date(d);
+  const day=date.getDay();
+  const diff=(day===0?-6:1-day);
+  date.setDate(date.getDate()+diff);
+  date.setHours(0,0,0,0);
+  return date;
+}
+function addDays(date,n){const d=new Date(date);d.setDate(d.getDate()+n);return d;}
+function iso(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+function weekKey(d){return iso(getMonday(d));}
+function fmtRange(d1,d2){
+  const o={month:'short',day:'numeric'};
+  return `${d1.toLocaleDateString('en-US',o)} – ${d2.toLocaleDateString('en-US',o)}`;
+}
+function fmtTime(hhmm){
+  if(!hhmm)return'';
+  const[h,m]=hhmm.split(':').map(Number);
+  const ampm=h>=12?'PM':'AM';
+  const h12=h%12===0?12:h%12;
+  return `${h12}:${String(m).padStart(2,'0')} ${ampm}`;
+}
+function uid(){return Math.random().toString(36).slice(2,10)+Date.now().toString(36).slice(-4);}
+function esc(s){return (s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function empColor(id){
+  const idx=state.employees.findIndex(e=>e.id===id);
+  return EMP_COLORS[idx>=0?idx%EMP_COLORS.length:0];
+}
+function empName(id){const e=state.employees.find(e=>e.id===id);return e?e.name:'Unknown';}
+function initials(name){return name.split(' ').map(p=>p[0]).slice(0,2).join('').toUpperCase();}
 
-// ── Open Now / Closed badge ──
-(function() {
-  const badge = document.getElementById('open-badge');
-  if (!badge) return;
-  const now = new Date();
-  const day = now.getDay();
-  const hour = now.getHours() + now.getMinutes() / 60;
-  const openDays = [0, 2, 3, 4, 5, 6];
-  const isOpenDay = openDays.includes(day);
-  const isTuesday = day === 2;
-  const isOpenHour = isTuesday ? (hour >= 10 && hour < 18) : (hour >= 8 && hour < 20);
-  if (isOpenDay && isOpenHour) {
-    badge.className = 'is-open';
-    badge.innerHTML = '<span class="badge-dot"></span>Open Now';
-  } else {
-    badge.className = 'is-closed';
-    badge.innerHTML = '<span class="badge-dot"></span>Closed';
+/* ============ storage layer (Firestore) ============ */
+async function storeGet(key){
+  try{
+    const snap=await getDoc(doc(db,'shiftboard',key));
+    return snap.exists()?snap.data().value:null;
+  }catch(e){console.error('load failed',key,e);return null;}
+}
+async function storeSet(key,val){
+  try{await setDoc(doc(db,'shiftboard',key),{value:val});}catch(e){console.error('save failed',key,e);}
+}
+
+async function loadEmployees(){state.employees=(await storeGet('employees'))||[];}
+async function saveEmployees(){await storeSet('employees',state.employees);}
+async function loadRequests(){state.requests=(await storeGet('requests'))||[];}
+async function saveRequests(){await storeSet('requests',state.requests);}
+async function loadTimeEntries(){state.timeEntries=(await storeGet('timeclock'))||[];}
+async function saveTimeEntries(){await storeSet('timeclock',state.timeEntries);}
+async function loadRestaurantName(){state.restaurantName=(await storeGet('restaurant-name'))||'';}
+async function loadWeek(wk){
+  if(state.scheduleCache[wk])return state.scheduleCache[wk];
+  const data=(await storeGet('schedule-'+wk))||[];
+  state.scheduleCache[wk]=data;
+  return data;
+}
+async function saveWeek(wk,shifts){
+  state.scheduleCache[wk]=shifts;
+  await storeSet('schedule-'+wk,shifts);
+}
+
+/* ============ init ============ */
+async function init(){
+  await Promise.all([loadEmployees(),loadRequests(),loadRestaurantName(),loadTimeEntries()]);
+  await loadWeek(weekKey(state.weekStart));
+  state.loading=false;
+  state.view = state.employees.length===0 ? 'setup' : 'login';
+  render();
+}
+
+/* ============ actions: setup / login ============ */
+async function doSetup(){
+  const rname=document.getElementById('su-restaurant').value.trim();
+  const oname=document.getElementById('su-name').value.trim();
+  const pin=document.getElementById('su-pin').value.trim();
+  if(!rname||!oname||!/^\d{4,6}$/.test(pin)){
+    state.error='Fill in every field. PIN should be 4–6 digits.';render();return;
   }
-})();
-
-// ── Hamburger menu ──
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.querySelector('.nav-links');
-const mobileNavClose = document.getElementById('mobileNavClose');
-
-function closeNav() {
-  hamburger.classList.remove('open');
-  navLinks.classList.remove('mobile-open');
+  state.restaurantName=rname;
+  await storeSet('restaurant-name',rname);
+  const owner={id:uid(),name:oname,pin,role:'admin'};
+  state.employees=[owner];
+  await saveEmployees();
+  state.currentUser=owner;
+  state.view='admin-schedule';
+  state.error='';
+  render();
 }
-function openNav() {
-  hamburger.classList.add('open');
-  navLinks.classList.add('mobile-open');
+async function doLogin(){
+  const empId=document.getElementById('lg-emp').value;
+  const pin=document.getElementById('lg-pin').value.trim();
+  const emp=state.employees.find(e=>e.id===empId);
+  if(!emp||emp.pin!==pin){state.error='Wrong PIN. Try again.';render();return;}
+  state.currentUser=emp;
+  state.view= emp.role==='admin' ? 'admin-schedule':'employee-clock';
+  state.error='';
+  render();
+}
+function doLogout(){
+  state.currentUser=null;state.view='login';state.error='';render();
 }
 
-if (hamburger && navLinks) {
-  hamburger.addEventListener('click', () => {
-    navLinks.classList.contains('mobile-open') ? closeNav() : openNav();
+/* ============ actions: schedule ============ */
+function openShiftModal(employeeId,day){
+  const wk=weekKey(state.weekStart);
+  const shifts=state.scheduleCache[wk]||[];
+  const existing=shifts.find(s=>s.employeeId===employeeId&&s.day===day);
+  state.modal={type:'shift',employeeId,day,existing};
+  render();
+}
+async function saveShift(){
+  const {employeeId,day,existing}=state.modal;
+  const start=document.getElementById('sh-start').value;
+  const end=document.getElementById('sh-end').value;
+  const note=document.getElementById('sh-note').value.trim();
+  if(!start||!end){state.error='Set a start and end time.';render();return;}
+  const wk=weekKey(state.weekStart);
+  let shifts=[...(state.scheduleCache[wk]||[])];
+  if(existing){
+    shifts=shifts.map(s=>s.id===existing.id?{...s,start,end,note}:s);
+  }else{
+    shifts.push({id:uid(),employeeId,day,start,end,note});
+  }
+  await saveWeek(wk,shifts);
+  state.modal=null;state.error='';render();
+}
+async function deleteShift(){
+  const {existing}=state.modal;
+  if(!existing){state.modal=null;render();return;}
+  const wk=weekKey(state.weekStart);
+  const shifts=(state.scheduleCache[wk]||[]).filter(s=>s.id!==existing.id);
+  await saveWeek(wk,shifts);
+  state.modal=null;render();
+}
+async function copyPreviousWeek(){
+  const prevWk=weekKey(addDays(state.weekStart,-7));
+  const curWk=weekKey(state.weekStart);
+  const prevShifts=await loadWeek(prevWk);
+  if(prevShifts.length===0){state.error='No shifts found last week to copy.';render();return;}
+  const copied=prevShifts.map(s=>({...s,id:uid()}));
+  await saveWeek(curWk,copied);
+  state.error='';render();
+}
+function changeWeek(delta){
+  state.weekStart=addDays(state.weekStart,7*delta);
+  loadWeek(weekKey(state.weekStart)).then(render);
+}
+
+/* ============ time clock: helpers ============ */
+function isoToLocalDateStr(iso){
+  const d=new Date(iso);
+  return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+}
+function isoToLocalTimeStr(iso){
+  const d=new Date(iso);
+  return String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');
+}
+function fmtClockTime(iso){return fmtTime(isoToLocalTimeStr(iso));}
+function entryDayIndex(entry,weekStart){
+  const d=new Date(entry.clockIn);
+  const dOnly=new Date(d.getFullYear(),d.getMonth(),d.getDate());
+  const wsOnly=new Date(weekStart.getFullYear(),weekStart.getMonth(),weekStart.getDate());
+  return Math.round((dOnly-wsOnly)/86400000);
+}
+function entriesForWeek(employeeId,weekStart){
+  return state.timeEntries.filter(e=>e.employeeId===employeeId).filter(e=>{
+    const idx=entryDayIndex(e,weekStart);
+    return idx>=0&&idx<7;
   });
-  if (mobileNavClose) {
-    mobileNavClose.addEventListener('click', closeNav);
-  }
-  navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', closeNav);
-  });
+}
+function hoursFor(entry){
+  if(!entry.clockOut)return null;
+  return (new Date(entry.clockOut)-new Date(entry.clockIn))/3600000;
+}
+function weeklyTotalHours(employeeId,weekStart){
+  return entriesForWeek(employeeId,weekStart).reduce((sum,e)=>sum+(hoursFor(e)||0),0);
+}
+function activeEntryFor(employeeId){
+  return state.timeEntries.find(e=>e.employeeId===employeeId&&!e.clockOut);
 }
 
-// ── Menu tab delegation ──
-document.addEventListener('click', function(e) {
-  const tab = e.target.closest('.menu-tab');
-  if (!tab) return;
-  const tabId = tab.dataset.tab;
-  if (!tabId) return;
-  if (typeof window.switchMenuTab === 'function') {
-    window.switchMenuTab(tabId);
+/* ============ actions: time clock ============ */
+async function clockIn(){
+  if(activeEntryFor(state.currentUser.id)){state.error='You are already clocked in.';render();return;}
+  state.timeEntries.push({id:uid(),employeeId:state.currentUser.id,clockIn:new Date().toISOString(),clockOut:null});
+  await saveTimeEntries();
+  state.error='';render();
+}
+async function clockOut(){
+  const idx=state.timeEntries.findIndex(e=>e.employeeId===state.currentUser.id&&!e.clockOut);
+  if(idx===-1){state.error='You are not clocked in.';render();return;}
+  state.timeEntries[idx]={...state.timeEntries[idx],clockOut:new Date().toISOString()};
+  await saveTimeEntries();
+  render();
+}
+function openTimeEntryModal(existing){state.modal={type:'timeentry',existing:existing||null};render();}
+function openTimeEntryModalById(id){openTimeEntryModal(state.timeEntries.find(e=>e.id===id)||null);}
+async function saveTimeEntry(){
+  const employeeId=document.getElementById('te-emp').value;
+  const date=document.getElementById('te-date').value;
+  const inT=document.getElementById('te-in').value;
+  const outT=document.getElementById('te-out').value;
+  if(!employeeId||!date||!inT){state.error='Pick an employee, date, and clock-in time.';render();return;}
+  const clockIn=new Date(date+'T'+inT).toISOString();
+  const clockOut=outT?new Date(date+'T'+outT).toISOString():null;
+  const existing=state.modal.existing;
+  if(existing){
+    state.timeEntries=state.timeEntries.map(e=>e.id===existing.id?{...e,employeeId,clockIn,clockOut}:e);
+  }else{
+    state.timeEntries.push({id:uid(),employeeId,clockIn,clockOut});
   }
-});
+  await saveTimeEntries();
+  state.modal=null;state.error='';render();
+}
+async function deleteTimeEntry(){
+  const existing=state.modal.existing;
+  if(!existing){state.modal=null;render();return;}
+  state.timeEntries=state.timeEntries.filter(e=>e.id!==existing.id);
+  await saveTimeEntries();
+  state.modal=null;render();
+}
 
-// ── Smooth scroll ──
-document.querySelectorAll('a[href^="#"]').forEach(link => {
-  link.addEventListener('click', function(e) {
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+/* ============ actions: requests ============ */
+function openTimeOffModal(){state.modal={type:'timeoff'};render();}
+async function submitTimeOff(){
+  const startDate=document.getElementById('to-start').value;
+  const endDate=document.getElementById('to-end').value;
+  const reason=document.getElementById('to-reason').value.trim();
+  if(!startDate||!endDate){state.error='Pick a start and end date.';render();return;}
+  state.requests.push({
+    id:uid(),employeeId:state.currentUser.id,type:'timeoff',status:'pending',
+    createdAt:Date.now(),startDate,endDate,reason
+  });
+  await saveRequests();
+  state.modal=null;state.error='';render();
+}
+async function setRequestStatus(id,status){
+  state.requests=state.requests.map(r=>r.id===id?{...r,status}:r);
+  await saveRequests();
+  render();
+}
+function openAvailabilityModal(){
+  const existing=[...state.requests].reverse().find(r=>r.type==='availability'&&r.employeeId===state.currentUser.id);
+  const days={};
+  DAY_NAMES.forEach((d,i)=>{
+    const prev=existing&&existing.days?existing.days[i]:null;
+    days[i]=prev?{...prev}:{available:true,start:'09:00',end:'17:00'};
+  });
+  state.modal={type:'availability',days,note:existing?existing.note:''};
+  render();
+}
+function toggleAvailDay(i,val){
+  state.modal.days[i].available=val;render();
+}
+async function submitAvailability(){
+  const note=document.getElementById('av-note').value.trim();
+  DAY_NAMES.forEach((d,i)=>{
+    const s=document.getElementById('av-start-'+i);
+    const e=document.getElementById('av-end-'+i);
+    if(s)state.modal.days[i].start=s.value;
+    if(e)state.modal.days[i].end=e.value;
+  });
+  state.requests.push({
+    id:uid(),employeeId:state.currentUser.id,type:'availability',status:'pending',
+    createdAt:Date.now(),days:state.modal.days,note
+  });
+  await saveRequests();
+  state.modal=null;render();
+}
+
+/* ============ actions: team ============ */
+function openAddEmployeeModal(){state.modal={type:'employee'};render();}
+async function saveEmployee(){
+  const name=document.getElementById('em-name').value.trim();
+  const pin=document.getElementById('em-pin').value.trim();
+  const role=document.getElementById('em-role').value;
+  if(!name||!/^\d{4,6}$/.test(pin)){state.error='Enter a name and a 4–6 digit PIN.';render();return;}
+  state.employees.push({id:uid(),name,pin,role});
+  await saveEmployees();
+  state.modal=null;state.error='';render();
+}
+async function removeEmployee(id){
+  if(id===state.currentUser.id){state.error="You can't remove yourself.";render();return;}
+  state.employees=state.employees.filter(e=>e.id!==id);
+  await saveEmployees();
+  render();
+}
+function closeModal(){state.modal=null;state.error='';render();}
+
+/* ============ render ============ */
+function render(){
+  const app=document.getElementById('app');
+  if(state.loading){app.innerHTML='<div class="loading">Loading Shift Board…</div>';return;}
+  let html='';
+  if(state.view==='setup')html=renderSetup();
+  else if(state.view==='login')html=renderLogin();
+  else html=renderAppShell();
+  if(state.modal)html+=renderModal();
+  app.innerHTML=html;
+  attachDynamicListeners();
+}
+
+function renderSetup(){
+  return `
+  <div class="auth-wrap"><div class="ticket">
+    <h2>Set up Shift Board</h2>
+    <p class="sub">Create your restaurant and your owner/manager login.</p>
+    ${state.error?`<div class="error-msg">${esc(state.error)}</div>`:''}
+    <div class="field"><label>Restaurant name</label><input id="su-restaurant" placeholder="e.g. Mario's Kitchen"></div>
+    <div class="field"><label>Your name</label><input id="su-name" placeholder="e.g. Mario"></div>
+    <div class="field"><label>Choose a PIN (4–6 digits)</label><input id="su-pin" inputmode="numeric" maxlength="6" placeholder="1234"></div>
+    <button class="btn" onclick="doSetup()">Create Shift Board</button>
+    <p class="hint">You can add employees once you're in.</p>
+  </div></div>`;
+}
+
+function renderLogin(){
+  const options=state.employees.map(e=>`<option value="${e.id}">${esc(e.name)}</option>`).join('');
+  return `
+  <div class="auth-wrap"><div class="ticket">
+    <h2>${esc(state.restaurantName||'Shift Board')}</h2>
+    <p class="sub">Pick your name and enter your PIN.</p>
+    ${state.error?`<div class="error-msg">${esc(state.error)}</div>`:''}
+    <div class="field"><label>Name</label><select id="lg-emp">${options}</select></div>
+    <div class="field"><label>PIN</label><input id="lg-pin" type="password" inputmode="numeric" maxlength="6" placeholder="••••"></div>
+    <button class="btn" onclick="doLogin()">Log in</button>
+  </div></div>`;
+}
+
+function renderAppShell(){
+  const isAdmin=state.currentUser.role==='admin';
+  const tabs=isAdmin
+    ? [['admin-schedule','Schedule'],['admin-hours','Hours'],['admin-requests','Requests'],['admin-team','Team']]
+    : [['employee-clock','Clock'],['employee-schedule','My Week'],['employee-full','Full Schedule'],['employee-timeoff','Time Off'],['employee-availability','Availability']];
+  const tabsHtml=tabs.map(([v,label])=>
+    `<button class="tab ${state.view===v?'active':''}" onclick="switchView('${v}')">${label}</button>`
+  ).join('');
+
+  let body='';
+  if(state.view==='admin-schedule')body=renderAdminSchedule();
+  else if(state.view==='admin-hours')body=renderAdminHours();
+  else if(state.view==='admin-requests')body=renderAdminRequests();
+  else if(state.view==='admin-team')body=renderAdminTeam();
+  else if(state.view==='employee-clock')body=renderEmployeeClock();
+  else if(state.view==='employee-schedule')body=renderEmployeeSchedule();
+  else if(state.view==='employee-full')body=renderFullScheduleReadonly();
+  else if(state.view==='employee-timeoff')body=renderTimeOff();
+  else if(state.view==='employee-availability')body=renderAvailability();
+
+  return `
+  <div class="topbar">
+    <div class="brand">
+      <div class="mark">${initials(state.restaurantName||'SB')}</div>
+      <div><h1>${esc(state.restaurantName||'Shift Board')}</h1>
+      <div class="who">${esc(state.currentUser.name)} · ${isAdmin?'Manager':'Staff'}</div></div>
+    </div>
+    <button class="logout-btn" onclick="doLogout()">Log out</button>
+  </div>
+  <div class="tabs">${tabsHtml}</div>
+  <div class="content">${state.error?`<div class="error-msg">${esc(state.error)}</div>`:''}${body}</div>
+  `;
+}
+function switchView(v){state.view=v;state.error='';render();}
+
+/* ---- admin: schedule grid ---- */
+function renderWeekNav(){
+  const start=state.weekStart, end=addDays(start,6);
+  return `<div class="week-nav">
+    <button onclick="changeWeek(-1)">‹</button>
+    <div class="wk-label">${fmtRange(start,end)}</div>
+    <button onclick="changeWeek(1)">›</button>
+  </div>`;
+}
+function renderAdminSchedule(){
+  const wk=weekKey(state.weekStart);
+  const shifts=state.scheduleCache[wk]||[];
+  const days=[...Array(7)].map((_,i)=>addDays(state.weekStart,i));
+  let grid=`<div class="corner">Team</div>`;
+  days.forEach((d,i)=>{
+    grid+=`<div class="daycol"><div class="dname">${DAY_NAMES[i]}</div><div class="dnum">${d.getDate()}</div></div>`;
+  });
+  state.employees.forEach(emp=>{
+    grid+=`<div class="rowname"><div class="avatar" style="background:${empColor(emp.id)}">${initials(emp.name)}</div>${esc(emp.name)}</div>`;
+    for(let i=0;i<7;i++){
+      const s=shifts.find(sh=>sh.employeeId===emp.id&&sh.day===i);
+      grid+=`<div class="cell" onclick="openShiftModal('${emp.id}',${i})">`;
+      grid+= s
+        ? `<div class="chip" style="background:${empColor(emp.id)}"><span class="t">${fmtTime(s.start)}–${fmtTime(s.end)}</span>${s.note?esc(s.note):''}</div>`
+        : `<div class="add-hint">+</div>`;
+      grid+=`</div>`;
     }
   });
-});
+  return `
+  <div class="sec-head"><h2>Schedule</h2>${renderWeekNav()}</div>
+  ${state.employees.length===0?'<div class="empty-note">Add employees in the Team tab first.</div>':`
+  <div class="grid-scroll"><div class="grid">${grid}</div></div>
+  <div style="margin-top:14px;"><button class="btn ghost small" onclick="copyPreviousWeek()">Copy last week's schedule</button></div>
+  `}`;
+}
 
-// ── Scroll reveal ──
-window.observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      window.observer.unobserve(e.target);
+/* ---- employee: read-only full schedule (reuses grid, no click) ---- */
+function renderFullScheduleReadonly(){
+  const wk=weekKey(state.weekStart);
+  const shifts=state.scheduleCache[wk]||[];
+  const days=[...Array(7)].map((_,i)=>addDays(state.weekStart,i));
+  let grid=`<div class="corner">Team</div>`;
+  days.forEach((d,i)=>{
+    grid+=`<div class="daycol"><div class="dname">${DAY_NAMES[i]}</div><div class="dnum">${d.getDate()}</div></div>`;
+  });
+  state.employees.forEach(emp=>{
+    grid+=`<div class="rowname"><div class="avatar" style="background:${empColor(emp.id)}">${initials(emp.name)}</div>${esc(emp.name)}</div>`;
+    for(let i=0;i<7;i++){
+      const s=shifts.find(sh=>sh.employeeId===emp.id&&sh.day===i);
+      grid+=`<div class="cell">`;
+      grid+= s ? `<div class="chip" style="background:${empColor(emp.id)}"><span class="t">${fmtTime(s.start)}–${fmtTime(s.end)}</span></div>` : '';
+      grid+=`</div>`;
     }
   });
-}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  return `
+  <div class="sec-head"><h2>Full Schedule</h2>${renderWeekNav()}</div>
+  <div class="grid-scroll"><div class="grid readonly">${grid}</div></div>`;
+}
 
-document.querySelectorAll('.reveal').forEach(el => window.observer.observe(el));
+/* ---- employee: clock in/out ---- */
+function renderEmployeeClock(){
+  const active=activeEntryFor(state.currentUser.id);
+  const wk=state.weekStart;
+  const entries=entriesForWeek(state.currentUser.id,wk).sort((a,b)=>new Date(a.clockIn)-new Date(b.clockIn));
+  const total=weeklyTotalHours(state.currentUser.id,wk);
+  const statusCard=active?`
+    <div class="card" style="text-align:center;padding:28px 16px;">
+      <div class="meta">Clocked in since</div>
+      <div class="serif" style="font-size:28px;font-weight:600;margin:4px 0 20px;">${fmtClockTime(active.clockIn)}</div>
+      <button class="btn" style="width:auto;padding:13px 34px;background:var(--deny)" onclick="clockOut()">Clock Out</button>
+    </div>`:`
+    <div class="card" style="text-align:center;padding:28px 16px;">
+      <div class="meta">You're clocked out</div>
+      <button class="btn" style="width:auto;padding:13px 34px;margin-top:16px" onclick="clockIn()">Clock In</button>
+    </div>`;
+  const entryRows=entries.length===0?'<div class="empty-note">No shifts clocked this week.</div>':entries.map(e=>{
+    const h=hoursFor(e);
+    return `<div class="day-row">
+      <div class="dlabel"><div class="dow">${new Date(e.clockIn).toLocaleDateString('en-US',{weekday:'short'})}</div><div class="ddate">${new Date(e.clockIn).toLocaleDateString('en-US',{month:'short',day:'numeric'})}</div></div>
+      <div class="shift-info"><div class="t">${fmtClockTime(e.clockIn)} – ${e.clockOut?fmtClockTime(e.clockOut):'now'}</div>${h!==null?`<div class="off">${h.toFixed(1)} hrs</div>`:'<div class="off">in progress</div>'}</div>
+    </div>`;
+  }).join('');
+  return `
+  <div class="sec-head"><h2>Clock</h2>${renderWeekNav()}</div>
+  ${statusCard}
+  <div class="subhead">This week · ${total.toFixed(1)} hrs total</div>
+  <div class="card">${entryRows}</div>`;
+}
+
+/* ---- admin: hours ---- */
+function renderAdminHours(){
+  const wk=state.weekStart;
+  const rows=state.employees.map(emp=>{
+    const entries=entriesForWeek(emp.id,wk).sort((a,b)=>new Date(a.clockIn)-new Date(b.clockIn));
+    const total=weeklyTotalHours(emp.id,wk);
+    const active=activeEntryFor(emp.id);
+    const entryRows=entries.length===0?'<div class="empty-note">No entries this week.</div>':entries.map(e=>{
+      const h=hoursFor(e);
+      return `<div class="team-row" style="cursor:pointer" onclick="openTimeEntryModalById('${e.id}')">
+        <div class="team-left"><div style="font-size:13px;font-weight:600">${new Date(e.clockIn).toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'})}</div></div>
+        <div style="font-size:13px;color:var(--ink-soft)">${fmtClockTime(e.clockIn)} – ${e.clockOut?fmtClockTime(e.clockOut):'still on clock'}${h!==null?` · ${h.toFixed(1)} hrs`:''}</div>
+      </div>`;
+    }).join('');
+    return `<div class="card">
+      <div class="top-row">
+        <div><div class="name">${esc(emp.name)}</div>${active?'<div class="badge approved">On the clock</div>':''}</div>
+        <div style="text-align:right"><div class="name">${total.toFixed(1)} hrs</div><div class="meta">this week</div></div>
+      </div>
+      ${entryRows}
+    </div>`;
+  }).join('');
+  return `
+  <div class="sec-head"><h2>Hours</h2>${renderWeekNav()}</div>
+  <div style="margin-bottom:12px"><button class="btn ghost small" onclick="openTimeEntryModal(null)">+ Add manual entry</button></div>
+  ${state.employees.length===0?'<div class="empty-note">Add employees in the Team tab first.</div>':rows}`;
+}
+
+/* ---- employee: my week list ---- */
+function renderEmployeeSchedule(){
+  const wk=weekKey(state.weekStart);
+  const shifts=(state.scheduleCache[wk]||[]).filter(s=>s.employeeId===state.currentUser.id);
+  const days=[...Array(7)].map((_,i)=>addDays(state.weekStart,i));
+  const rows=days.map((d,i)=>{
+    const s=shifts.find(sh=>sh.day===i);
+    return `<div class="day-row">
+      <div class="dlabel"><div class="dow">${DAY_NAMES[i]}</div><div class="ddate">${d.toLocaleDateString('en-US',{month:'short',day:'numeric'})}</div></div>
+      <div class="shift-info">${s?`<div class="t">${fmtTime(s.start)} – ${fmtTime(s.end)}</div>${s.note?`<div class="off">${esc(s.note)}</div>`:''}`:'<div class="off">Not scheduled</div>'}</div>
+    </div>`;
+  }).join('');
+  return `
+  <div class="sec-head"><h2>My Week</h2>${renderWeekNav()}</div>
+  <div class="card">${rows}</div>`;
+}
+
+/* ---- employee: time off ---- */
+function renderTimeOff(){
+  const mine=state.requests.filter(r=>r.type==='timeoff'&&r.employeeId===state.currentUser.id).sort((a,b)=>b.createdAt-a.createdAt);
+  const list=mine.length===0?'<div class="empty-note">No time-off requests yet.</div>':mine.map(r=>`
+    <div class="card">
+      <div class="top-row"><div class="name">${r.startDate}${r.startDate!==r.endDate?' → '+r.endDate:''}</div><div class="badge ${r.status}">${r.status}</div></div>
+      ${r.reason?`<div class="meta">${esc(r.reason)}</div>`:''}
+    </div>`).join('');
+  return `
+  <div class="sec-head"><h2>Time Off</h2><button class="btn small" style="width:auto" onclick="openTimeOffModal()">+ New request</button></div>
+  ${list}`;
+}
+
+/* ---- employee: availability ---- */
+function renderAvailability(){
+  const mine=state.requests.filter(r=>r.type==='availability'&&r.employeeId===state.currentUser.id).sort((a,b)=>b.createdAt-a.createdAt);
+  const list=mine.length===0?'<div class="empty-note">You haven&#39;t submitted your availability yet.</div>':mine.map(r=>{
+    const dayline=DAY_NAMES.map((d,i)=>r.days[i].available?`${d} ${fmtTime(r.days[i].start)}–${fmtTime(r.days[i].end)}`:`${d} off`).join(' · ');
+    return `<div class="card">
+      <div class="top-row"><div class="name">Submitted ${new Date(r.createdAt).toLocaleDateString()}</div><div class="badge ${r.status}">${r.status}</div></div>
+      <div class="meta">${dayline}</div>
+      ${r.note?`<div class="meta">"${esc(r.note)}"</div>`:''}
+    </div>`;
+  }).join('');
+  return `
+  <div class="sec-head"><h2>Availability</h2><button class="btn small" style="width:auto" onclick="openAvailabilityModal()">Update availability</button></div>
+  ${list}`;
+}
+
+/* ---- admin: requests ---- */
+function renderAdminRequests(){
+  const pending=state.requests.filter(r=>r.status==='pending').sort((a,b)=>a.createdAt-b.createdAt);
+  const history=state.requests.filter(r=>r.status!=='pending').sort((a,b)=>b.createdAt-a.createdAt).slice(0,20);
+  function reqCard(r,showActions){
+    if(r.type==='timeoff'){
+      return `<div class="card">
+        <div class="top-row"><div class="name">${esc(empName(r.employeeId))} — Time off</div>${!showActions?`<div class="badge ${r.status}">${r.status}</div>`:''}</div>
+        <div class="meta">${r.startDate}${r.startDate!==r.endDate?' → '+r.endDate:''}</div>
+        ${r.reason?`<div class="meta">"${esc(r.reason)}"</div>`:''}
+        ${showActions?`<div class="row-actions"><button class="btn secondary" onclick="setRequestStatus('${r.id}','denied')">Deny</button><button class="btn" onclick="setRequestStatus('${r.id}','approved')">Approve</button></div>`:''}
+      </div>`;
+    }else{
+      const dayline=DAY_NAMES.map((d,i)=>r.days[i].available?`${d} ${fmtTime(r.days[i].start)}–${fmtTime(r.days[i].end)}`:`${d} off`).join(' · ');
+      return `<div class="card">
+        <div class="top-row"><div class="name">${esc(empName(r.employeeId))} — Availability</div>${!showActions?`<div class="badge ${r.status}">${r.status}</div>`:''}</div>
+        <div class="meta">${dayline}</div>
+        ${r.note?`<div class="meta">"${esc(r.note)}"</div>`:''}
+        ${showActions?`<div class="row-actions"><button class="btn secondary" onclick="setRequestStatus('${r.id}','denied')">Dismiss</button><button class="btn" onclick="setRequestStatus('${r.id}','approved')">Acknowledge</button></div>`:''}
+      </div>`;
+    }
+  }
+  return `
+  <div class="sec-head"><h2>Requests</h2></div>
+  <div class="subhead">Pending (${pending.length})</div>
+  ${pending.length===0?'<div class="empty-note">Nothing waiting on you.</div>':pending.map(r=>reqCard(r,true)).join('')}
+  <div class="subhead">History</div>
+  ${history.length===0?'<div class="empty-note">Nothing yet.</div>':history.map(r=>reqCard(r,false)).join('')}
+  `;
+}
+
+/* ---- admin: team ---- */
+function renderAdminTeam(){
+  const rows=state.employees.map(e=>`
+    <div class="team-row">
+      <div class="team-left"><div class="avatar" style="background:${empColor(e.id)}">${initials(e.name)}</div>
+        <div><div class="tname">${esc(e.name)}</div><div class="trole">${e.role==='admin'?'Manager':'Staff'}</div></div>
+      </div>
+      <div><span class="pin-tag">PIN ${e.pin}</span><button class="icon-btn" onclick="removeEmployee('${e.id}')">Remove</button></div>
+    </div>`).join('');
+  return `
+  <div class="sec-head"><h2>Team</h2><button class="btn small" style="width:auto" onclick="openAddEmployeeModal()">+ Add employee</button></div>
+  <div class="card">${rows}</div>`;
+}
+
+/* ---- modals ---- */
+function renderModal(){
+  const m=state.modal;
+  let body='';
+  if(m.type==='shift'){
+    const s=m.existing;
+    body=`
+    <h3>${empName(m.employeeId)} — ${DAY_NAMES[m.day]}</h3>
+    <div class="field"><label>Start</label><input id="sh-start" type="time" value="${s?s.start:'09:00'}"></div>
+    <div class="field"><label>End</label><input id="sh-end" type="time" value="${s?s.end:'17:00'}"></div>
+    <div class="field"><label>Note (optional)</label><input id="sh-note" placeholder="e.g. Closing shift" value="${s?esc(s.note||''):''}"></div>
+    <div class="modal-actions">
+      ${s?`<button class="btn secondary" onclick="deleteShift()">Delete</button>`:`<button class="btn secondary" onclick="closeModal()">Cancel</button>`}
+      <button class="btn" onclick="saveShift()">Save</button>
+    </div>`;
+  }else if(m.type==='timeoff'){
+    body=`
+    <h3>Request time off</h3>
+    <div class="field"><label>From</label><input id="to-start" type="date"></div>
+    <div class="field"><label>To</label><input id="to-end" type="date"></div>
+    <div class="field"><label>Reason (optional)</label><textarea id="to-reason" placeholder="Let your manager know why"></textarea></div>
+    <div class="modal-actions"><button class="btn secondary" onclick="closeModal()">Cancel</button><button class="btn" onclick="submitTimeOff()">Send request</button></div>`;
+  }else if(m.type==='availability'){
+    const rows=DAY_NAMES.map((d,i)=>{
+      const day=m.days[i];
+      return `<div class="avail-day">
+        <div class="adname">${d}</div>
+        <div class="toggle-pair">
+          <button class="${day.available?'on avail':''}" onclick="toggleAvailDay(${i},true)">Available</button>
+          <button class="${!day.available?'on unavail':''}" onclick="toggleAvailDay(${i},false)">Off</button>
+        </div>
+        ${day.available?`<div class="avail-times">
+          <input id="av-start-${i}" type="time" value="${day.start}">
+          <span>–</span>
+          <input id="av-end-${i}" type="time" value="${day.end}">
+        </div>`:''}
+      </div>`;
+    }).join('');
+    body=`
+    <h3>Set your availability</h3>
+    ${rows}
+    <div class="field" style="margin-top:14px;"><label>Anything else? (e.g. want more hours)</label><textarea id="av-note" placeholder="Optional note for your manager">${esc(m.note||'')}</textarea></div>
+    <div class="modal-actions"><button class="btn secondary" onclick="closeModal()">Cancel</button><button class="btn" onclick="submitAvailability()">Submit</button></div>`;
+  }else if(m.type==='timeentry'){
+    const e=m.existing;
+    const empOptions=state.employees.map(emp=>`<option value="${emp.id}" ${e&&e.employeeId===emp.id?'selected':''}>${esc(emp.name)}</option>`).join('');
+    body=`
+    <h3>${e?'Edit':'Add'} time entry</h3>
+    <div class="field"><label>Employee</label><select id="te-emp">${empOptions}</select></div>
+    <div class="field"><label>Date</label><input id="te-date" type="date" value="${e?isoToLocalDateStr(e.clockIn):iso(new Date())}"></div>
+    <div class="field"><label>Clock in</label><input id="te-in" type="time" value="${e?isoToLocalTimeStr(e.clockIn):'09:00'}"></div>
+    <div class="field"><label>Clock out (leave blank if still on the clock)</label><input id="te-out" type="time" value="${e&&e.clockOut?isoToLocalTimeStr(e.clockOut):''}"></div>
+    <div class="modal-actions">
+      ${e?`<button class="btn secondary" onclick="deleteTimeEntry()">Delete</button>`:`<button class="btn secondary" onclick="closeModal()">Cancel</button>`}
+      <button class="btn" onclick="saveTimeEntry()">Save</button>
+    </div>`;
+  }else if(m.type==='employee'){
+    body=`
+    <h3>Add employee</h3>
+    <div class="field"><label>Name</label><input id="em-name" placeholder="Full name"></div>
+    <div class="field"><label>PIN (4–6 digits)</label><input id="em-pin" inputmode="numeric" maxlength="6" placeholder="1234"></div>
+    <div class="field"><label>Role</label><select id="em-role"><option value="employee">Staff</option><option value="admin">Manager</option></select></div>
+    <div class="modal-actions"><button class="btn secondary" onclick="closeModal()">Cancel</button><button class="btn" onclick="saveEmployee()">Add</button></div>`;
+  }
+  return `<div class="modal-backdrop" onclick="if(event.target===this)closeModal()"><div class="modal">${body}</div></div>`;
+}
+
+function attachDynamicListeners(){ /* all handlers are inline via onclick for simplicity */ }
+
+/* expose functions referenced by inline onclick="" attributes in the rendered HTML */
+Object.assign(window,{
+  doSetup,doLogin,doLogout,switchView,changeWeek,copyPreviousWeek,
+  openShiftModal,saveShift,deleteShift,
+  openTimeOffModal,submitTimeOff,setRequestStatus,
+  openAvailabilityModal,toggleAvailDay,submitAvailability,
+  openAddEmployeeModal,saveEmployee,removeEmployee,closeModal,
+  clockIn,clockOut,openTimeEntryModal,openTimeEntryModalById,saveTimeEntry,deleteTimeEntry
+});
+
+init();
 </script>
 </body>
 </html>
